@@ -4,12 +4,12 @@ import logo from './logo.svg'
 import './Home.css'
 
 const Home = () => (
-  <div className="my-Home">
-    <header className="my-Home-header">
-      <img src={logo} className="my-Home-logo" alt="logo" />
-      <h1 className="my-Home-title">Welcome to React</h1>
+  <div className='my-Home'>
+    <header className='my-Home-header'>
+      <img src={logo} className='my-Home-logo' alt='logo' />
+      <h1 className='my-Home-title'>Welcome to React</h1>
     </header>
-    <p className="my-Home-intro">
+    <p className='my-Home-intro'>
       To get started, edit <code>src/App.js</code> and save to reload.
     </p>
   </div>

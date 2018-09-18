@@ -1,0 +1,70 @@
+.tng-Article {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.tng-Article-stickyBar {
+  background-color: hsl(75, 13%, 94%, 0.95);
+  bottom: 0;
+  height: 45px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  transition: transform 200ms;
+  z-index: 10;
+}
+
+.tng-Article-stickyBar.is-shifted {
+  transform: translate3d(calc(45px - 100vw), 0, 0);
+}
+
+.tng-Article-menuBtn {
+  float: right;
+  height: 45px;
+  width: 45px;
+}
+
+.tng-Article-menu {
+  background-color: LightSkyBlue;
+  left: 100vw;
+  position: fixed;
+  height: 100vh;
+  transition: transform 200ms;
+  width: calc(100vw - 45px);
+}
+
+.tng-Article-menu.is-visible {
+  transform: translate3d(calc(45px - 100vw), 0, 0);
+}
+
+.tng-Article-content {
+  background-color: hsl(0, 0, 98%);
+  height: 100%;
+  overflow-y: auto;
+  transition: transform 200ms;
+}
+
+.tng-Article-content.is-shifted {
+  transform: translate3d(calc(45px - 100vw), 0, 0);
+  pointer-events: none;
+}
+
+.tng-Article-logo {
+  background-color: CornflowerBlue;
+}
+
+.tng-Article-image {
+  background-color: DarkOliveGreen;
+}
+
+.tng-Article-titleBox {
+  background-color: DarkSalmon;
+}
+
+.tng-Article-text {
+  color: hsl(0, 0, 13%);
+  padding: 15px 15px 60px 15px;
+}

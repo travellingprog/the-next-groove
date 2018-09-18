@@ -4,23 +4,23 @@ import Loadable from 'react-loadable'
 
 const Loading = () => <div>Loading...</div>
 
-const Home = Loadable({
-  loader: () => import('./Home'),
-  loading: Loading,
+const Article = Loadable({
+  loader: () => import('./Article'),
+  loading: Loading
 })
 
-const Admin = Loadable({
-  loader: () => import('./Admin'),
-  loading: Loading,
+const Home = Loadable({
+  loader: () => import('./Home'),
+  loading: Loading
 })
 
 const App = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route path="/admin" component={Admin}/>
+      <Route exact path='/' component={Home} />
+      <Route path='/article/:articlePath' component={Article} />
     </Switch>
   </Router>
 )
 
-export default App;
+export default App
