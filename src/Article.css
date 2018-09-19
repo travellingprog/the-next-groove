@@ -1,4 +1,5 @@
 .tng-Article {
+  background-color: hsl(0, 0%, 98%);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -69,7 +70,6 @@
 }
 
 .tng-Article-content {
-  background-color: hsl(0, 0%, 98%);
   height: 100%;
   overflow-y: auto;
   transition: transform 250ms;
@@ -80,8 +80,16 @@
   pointer-events: none;
 }
 
+.tng-Article-logoContainer {
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+
 .tng-Article-logo {
-  background-color: CornflowerBlue;
+  height: auto;
+  vertical-align: middle;
+  width: 280px;
 }
 
 .tng-Article-image {

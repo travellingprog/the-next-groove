@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import smallLogo from './images/Logo-small-x35.png'
 import fullScreenImg from './images/screen-full-32px-blue.png'
+import logoImg from './images/Logo-x45.png'
 import menuImg from './images/th-menu-48px-blue.png'
 import viewImg from './images/eye-outline-48x-blue.png'
 import './Article.css'
@@ -43,8 +44,8 @@ class Article extends Component {
           Menu here
         </div>
         <div className={contentClass}>
-          <div className='tng-Article-logo'>
-            Logo Box
+          <div className='tng-Article-logoContainer'>
+            <img className='tng-Article-logo' src={logoImg} />
           </div>
           <div className='tng-Article-image'>
             Image
