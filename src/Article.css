@@ -7,48 +7,76 @@
 }
 
 .tng-Article-stickyBar {
-  background-color: hsl(75, 13%, 94%, 0.95);
+  background-color: hsla(75, 13%, 94%, 0.95);
   bottom: 0;
   height: 45px;
   left: 0;
   position: fixed;
   right: 0;
-  transition: transform 200ms;
+  transition: transform 250ms;
   z-index: 10;
 }
 
 .tng-Article-stickyBar.is-shifted {
-  transform: translate3d(calc(45px - 100vw), 0, 0);
+  transform: translate3d(calc(63px - 100vw), 0, 0);
 }
 
-.tng-Article-menuBtn {
+.tng-Article-smallLogo {
+  height: 30px;
+  margin: 7px 0 0 10px;
+  width: auto;
+}
+
+.tng-Article-stickyBtns {
   float: right;
+}
+
+.tng-Article-stickyBtn {
+  border-left: 1px solid hsl(193, 66%, 33%);
   height: 45px;
-  width: 45px;
+  width: 64px;
+}
+
+.tng-Article-fullScreenImg {
+  height: auto;
+  vertical-align: middle;
+  width: 28px;
+}
+
+.tng-Article-viewImg {
+  height: auto;
+  vertical-align: middle;
+  width: 32px;
+}
+
+.tng-Article-menuImg {
+  height: auto;
+  vertical-align: middle;
+  width: 24px;
 }
 
 .tng-Article-menu {
-  background-color: LightSkyBlue;
+  background-color: hsla(193, 66%, 33%, 0.85);
   left: 100vw;
   position: fixed;
   height: 100vh;
-  transition: transform 200ms;
+  transition: transform 250ms;
   width: calc(100vw - 45px);
 }
 
 .tng-Article-menu.is-visible {
-  transform: translate3d(calc(45px - 100vw), 0, 0);
+  transform: translate3d(calc(63px - 100vw), 0, 0);
 }
 
 .tng-Article-content {
-  background-color: hsl(0, 0, 98%);
+  background-color: hsl(0, 0%, 98%);
   height: 100%;
   overflow-y: auto;
-  transition: transform 200ms;
+  transition: transform 250ms;
 }
 
 .tng-Article-content.is-shifted {
-  transform: translate3d(calc(45px - 100vw), 0, 0);
+  transform: translate3d(calc(63px - 100vw), 0, 0);
   pointer-events: none;
 }
 
@@ -65,6 +93,6 @@
 }
 
 .tng-Article-text {
-  color: hsl(0, 0, 13%);
+  color: hsl(0, 0%, 13%);
   padding: 15px 15px 60px 15px;
 }

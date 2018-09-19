@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+import smallLogo from './images/Logo-small-x35.png'
+import fullScreenImg from './images/screen-full-32px-blue.png'
+import menuImg from './images/th-menu-48px-blue.png'
+import viewImg from './images/eye-outline-48x-blue.png'
 import './Article.css'
 
 class Article extends Component {
@@ -22,12 +26,18 @@ class Article extends Component {
     return (
       <div className='tng-Article'>
         <div className={stickyClass}>
-          <span>
-            Sticky Bar
-          </span>
-          <button className='tng-Article-menuBtn' onClick={this.toggleMenu}>
-            M
-          </button>
+          <img className='tng-Article-smallLogo' src={smallLogo} />
+          <div className='tng-Article-stickyBtns'>
+            <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
+              <img className='tng-Article-fullScreenImg' src={fullScreenImg} />
+            </button>
+            <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
+              <img className='tng-Article-viewImg' src={viewImg} />
+            </button>
+            <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
+              <img className='tng-Article-menuImg' src={menuImg} />
+            </button>
+          </div>
         </div>
         <div className={menuClass}>
           Menu here
