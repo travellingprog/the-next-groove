@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import fscreen from 'fscreen'
 
 import articleImg from './images/Boddika.jpg'
 // import articleImg from './images/narrowImg.jpeg'
@@ -34,10 +35,9 @@ class Article extends Component {
 
   /** Request to open the article in fullscreen */
   requestFullscreen = () => {
-    debugger
     const contentElem = this.contentRef.current
-    if (contentElem.requestFullscreen) {
-      contentElem.requestFullscreen()
+    if (fscreen.fullscreenEnabled) {
+      fscreen.requestFullscreen(contentElem)
     }
   }
 
@@ -67,9 +67,11 @@ class Article extends Component {
         <div className={stickyClass}>
           <img className='tng-Article-smallLogo' src={smallLogo} alt='' />
           <div className='tng-Article-stickyBtns'>
-            <button className='tng-Article-stickyBtn' onClick={this.requestFullscreen}>
-              <img alt='' className='tng-Article-fullScreenImg' src={fullScreenImg} />
-            </button>
+            { fscreen.fullscreenEnabled &&
+              <button className='tng-Article-stickyBtn' onClick={this.requestFullscreen}>
+                <img alt='' className='tng-Article-fullScreenImg' src={fullScreenImg} />
+              </button>
+            }
             <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
               <img alt='' className='tng-Article-viewImg' src={viewImg} />
             </button>
@@ -107,12 +109,12 @@ class Article extends Component {
             <img alt='' className='tng-Article-logo' src={logoImg} />
           </div>
           <div className='tng-Article-imageContainer'>
-            <img alt='' className='tng-Article-image' src={articleImg} />
             <div className='tng-Article-imageBackground' style={bgLStyle} />
             <div
               className='tng-Article-imageBackground tng-Article-imageBackground--right'
               style={bgRStyle}
             />
+            <img alt='' className='tng-Article-image' src={articleImg} />
           </div>
           <div className='tng-Article-titleBox'>
             <div className='tng-Article-title'>Boddika's Drum-Machine Music</div>

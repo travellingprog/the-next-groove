@@ -1,10 +1,10 @@
 .tng-Article {
   background-color: hsl(0, 0%, 98%);
-  bottom: 0;
+/*  bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
-  top: 0;
+  top: 0;*/
 }
 
 /* Sticky Bar */
@@ -64,9 +64,10 @@
 
 .tng-Article-menu {
   background-color: hsla(193, 66%, 33%, 0.85);
+  bottom: 0;
+  height: 100vh;
   left: 100vw;
   position: fixed;
-  height: 100vh;
   transition: transform 250ms;
   width: calc(100vw - 63px);
 }
@@ -120,6 +121,7 @@
 /* Article */
 
 .tng-Article-content {
+  background-color: hsl(0, 0%, 98%);
   height: 100%;
   overflow-y: auto;
   transition: transform 250ms;
@@ -127,7 +129,7 @@
 
 .tng-Article-content.is-shifted {
   transform: translate3d(calc(63px - 100vw), 0, 0);
-  pointer-events: none;
+  /*pointer-events: none;*/
 }
 
 .tng-Article-logoContainer {
@@ -151,8 +153,9 @@
 
 .tng-Article-image {
   height: 66.66vw;
+  position: relative;
   width: auto;
-  z-index: 2;
+  z-index: 1;
 }
 
 .tng-Article-imageBackground {
@@ -165,7 +168,7 @@
   top: 0;
   transition: transform 1200ms;
   width: 50vw;
-  z-index: -1;
+  z-index: 0;
 }
 
 .tng-Article-imageBackground--right {
@@ -182,6 +185,7 @@
   position: relative;
   top: -30px;
   width: calc(100vw - 15px);
+  z-index: 2;
 }
 
 .tng-Article-title {
