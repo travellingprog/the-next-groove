@@ -1,10 +1,5 @@
 .tng-Article {
   background-color: hsl(0, 0%, 98%);
-/*  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;*/
 }
 
 /* Sticky Bar */
@@ -129,7 +124,6 @@
 
 .tng-Article-content.is-shifted {
   transform: translate3d(calc(63px - 100vw), 0, 0);
-  /*pointer-events: none;*/
 }
 
 .tng-Article-logoContainer {
@@ -178,7 +172,7 @@
 
 .tng-Article-titleBox {
   background-color: hsl(0, 0%, 98%);
-  border-top: 1px dotted hsla(0, 0%, 0%, 10%);
+  border-top: 1px solid hsla(0, 0%, 0%, 10%);
   color: hsl(138, 82%, 28%);
   min-height: 30px;
   padding: 10px 15px 0;
@@ -208,4 +202,65 @@
   line-height: 1.4;
   padding: 0 15px 60px 15px;
   word-spacing: 0.2em;
+}
+
+/* View Selector */
+
+.tng-Article-viewSelector {
+  background-color: hsla(0, 0%, 0%, 85%);
+  bottom: 0;
+  color: hsl(0, 0%, 80%);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.625em;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  transform: scale(0.1, 0.1);
+  transition: transform 300ms, opacity 300ms;
+  z-index: 100;
+}
+
+.tng-Article-viewSelector.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1, 1);
+}
+
+.tng-Article-selectorTitle {
+  margin-bottom: 5px;
+}
+
+.tng-Article-viewMode {
+  color: hsl(138, 82%, 28%);
+  font-size: 1.6em;
+  margin-top: 15px;
+  opacity: 0.85;
+}
+
+.tng-Article-viewMode.is-selected {
+  font-weight: bold;
+  opacity: 1;
+  position: relative;
+}
+
+.tng-Article-viewMode.is-selected:before {
+  background-image: url(./images/arrow-right-outline-48px-green.png);
+  background-size: contain;
+  content: '';
+  display: block;
+  height: 24px;
+  left: -30px;
+  position: absolute;
+  top: 0.3em;
+  width: 24px;
+}
+
+.tng-Article-closeSelectorBtn {
+  margin-top: 70px;
 }

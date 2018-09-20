@@ -16,7 +16,8 @@ class Article extends Component {
 
   state = {
     bgShift: 0,
-    menuOpen: false
+    menuOpen: false,
+    selectorOpen: false
   }
 
   /** check the dimension of the article's main image, to create a cool background */
@@ -46,12 +47,18 @@ class Article extends Component {
     this.setState({ menuOpen: !this.state.menuOpen })
   }
 
+  /** Change whether the selector is open or closed */
+  toggleSelector = () => {
+    this.setState({ selectorOpen: !this.state.selectorOpen })
+  }
+
   render () {
-    const { bgShift, menuOpen } = this.state
+    const { bgShift, menuOpen, selectorOpen } = this.state
 
     const stickyClass = 'tng-Article-stickyBar' + (menuOpen ? ' is-shifted' : '')
     const menuClass = 'tng-Article-menu' + (menuOpen ? ' is-visible' : '')
     const contentClass = 'tng-Article-content' + (menuOpen ? ' is-shifted' : '')
+    const selectorClass = 'tng-Article-viewSelector' + (selectorOpen ? ' is-visible' : '')
 
     let bgLStyle = { backgroundImage: `url(${articleImg})` }
     let bgRStyle = { ...bgLStyle }
@@ -72,7 +79,7 @@ class Article extends Component {
                 <img alt='' className='tng-Article-fullScreenImg' src={fullScreenImg} />
               </button>
             }
-            <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
+            <button className='tng-Article-stickyBtn' onClick={this.toggleSelector}>
               <img alt='' className='tng-Article-viewImg' src={viewImg} />
             </button>
             <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
@@ -142,6 +149,20 @@ class Article extends Component {
             Headhunter) 12" record with Footcrab (and Dumbshit on the B-side). It became an immediate
             hit in the underground. The Juke-inspired, lo-fi, bassy, drum-machine track sounded like
             nothing else in Dubstep.
+          </div>
+        </div>
+
+        {/* View Selector */}
+        <div className={selectorClass}>
+          <div>
+            <div className='tng-Article-selectorTitle'>select view mode</div>
+            <div><button className='tng-Article-viewMode is-selected'>Text + Music</button></div>
+            <div><button className='tng-Article-viewMode'>Music only</button></div>
+            <div>
+              <button className='tng-Article-closeSelectorBtn' onClick={this.toggleSelector}>
+                <strong>x close</strong>
+              </button>
+            </div>
           </div>
         </div>
       </div>
