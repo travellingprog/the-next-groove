@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import articleImg from './images/Boddika.jpg'
 // import articleImg from './images/narrowImg.jpeg'
+import closeBtnImg from './images/times-outline-48px-blue.png'
 import fullScreenImg from './images/screen-full-32px-blue.png'
 import logoImg from './images/Logo-x45.png'
 import menuImg from './images/th-menu-48px-blue.png'
@@ -10,6 +11,8 @@ import viewImg from './images/eye-outline-48x-blue.png'
 import './Article.css'
 
 class Article extends Component {
+  contentRef = React.createRef()
+
   state = {
     bgShift: 0,
     menuOpen: false
@@ -27,6 +30,15 @@ class Article extends Component {
     }
 
     img.src = articleImg
+  }
+
+  /** Request to open the article in fullscreen */
+  requestFullscreen = () => {
+    debugger
+    const contentElem = this.contentRef.current
+    if (contentElem.requestFullscreen) {
+      contentElem.requestFullscreen()
+    }
   }
 
   /** Change whether the menu is open or closed */
@@ -50,10 +62,12 @@ class Article extends Component {
 
     return (
       <div className='tng-Article'>
+
+        { /* Sticky Bar */ }
         <div className={stickyClass}>
           <img className='tng-Article-smallLogo' src={smallLogo} alt='' />
           <div className='tng-Article-stickyBtns'>
-            <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
+            <button className='tng-Article-stickyBtn' onClick={this.requestFullscreen}>
               <img alt='' className='tng-Article-fullScreenImg' src={fullScreenImg} />
             </button>
             <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
@@ -64,10 +78,31 @@ class Article extends Component {
             </button>
           </div>
         </div>
+
+        { /* Menu */ }
         <div className={menuClass}>
-          Menu here
+          <nav className='tng-Article-nav'>
+            <ul className='tng-Article-navList'>
+              <li>
+                <a className='tng-Article-navItem tng-Article-navItem--seperate' href='#'>Home</a>
+              </li>
+              <li><a className='tng-Article-navItem' href='#'>Musings</a></li>
+              <li><a className='tng-Article-navItem' href='#'>Showcase Mixes</a></li>
+              <li>
+                <a className='tng-Article-navItem tng-Article-navItem--seperate' href='#'>
+                  Playlists
+                </a>
+              </li>
+              <li><a className='tng-Article-navItem' href='#'>About</a></li>
+            </ul>
+          </nav>
+          <button className='tng-Article-closeMenuBtn' onClick={this.toggleMenu}>
+            <img alt='' className='tng-Article-closeBtnImg' src={closeBtnImg} />
+          </button>
         </div>
-        <div className={contentClass}>
+
+        { /* Article */ }
+        <div className={contentClass} ref={this.contentRef}>
           <div className='tng-Article-logoContainer'>
             <img alt='' className='tng-Article-logo' src={logoImg} />
           </div>
