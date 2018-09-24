@@ -14,10 +14,16 @@ const Home = Loadable({
   loading: Loading
 })
 
+const NetlifyCMS = Loadable({
+  loader: () => import('./NetlifyCMS/index'),
+  loading: Loading
+})
+
 const App = () => (
   <Router>
     <Switch>
       <Route exact path='/' component={Home} />
+      <Route path='/admin' component={NetlifyCMS} />
       <Route path='/article/:articlePath' component={Article} />
     </Switch>
   </Router>

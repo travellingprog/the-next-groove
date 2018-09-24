@@ -12,7 +12,6 @@ const iframes = [
 ]
 
 class ArticleContent extends Component {
-
   iframeRefs = iframes.map(() => React.createRef())
 
   state = {
