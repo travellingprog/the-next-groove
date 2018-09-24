@@ -113,7 +113,7 @@
 }
 
 
-/* Article */
+/* Article Content */
 
 .tng-Article-content {
   background-color: hsl(0, 0%, 98%);
@@ -126,83 +126,6 @@
   transform: translate3d(calc(63px - 100vw), 0, 0);
 }
 
-.tng-Article-logoContainer {
-  height: 55px;
-  line-height: 55px;
-  text-align: center;
-}
-
-.tng-Article-logo {
-  height: auto;
-  vertical-align: middle;
-  width: 280px;
-}
-
-.tng-Article-imageContainer {
-  height: 66.66vw;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-}
-
-.tng-Article-image {
-  height: 66.66vw;
-  position: relative;
-  width: auto;
-  z-index: 1;
-}
-
-.tng-Article-imageBackground {
-  background-position: top left;
-  background-size: 100vw auto;
-  height: 66.66vw;
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  top: 0;
-  transition: transform 1200ms;
-  width: 50vw;
-  z-index: 0;
-}
-
-.tng-Article-imageBackground--right {
-  background-position: top right;
-  left: 50vw;
-}
-
-.tng-Article-titleBox {
-  background-color: hsl(0, 0%, 98%);
-  border-top: 1px solid hsla(0, 0%, 0%, 10%);
-  color: hsl(138, 82%, 28%);
-  min-height: 30px;
-  padding: 10px 15px 0;
-  position: relative;
-  top: -30px;
-  width: calc(100vw - 15px);
-  z-index: 2;
-}
-
-.tng-Article-title {
-  font-family: "IBM Plex Serif Web", serif;
-  font-size: 1.3125em;
-  font-weight: bold;
-}
-
-.tng-Article-category {
-  line-height: 1.5;
-}
-
-.tng-Article-publishDate {
-  font-size: 0.75em;
-  line-height: 1.25;
-}
-
-.tng-Article-text {
-  color: hsl(0, 0%, 13%);
-  line-height: 1.4;
-  padding: 0 15px 60px 15px;
-  word-spacing: 0.2em;
-}
 
 /* View Selector */
 
