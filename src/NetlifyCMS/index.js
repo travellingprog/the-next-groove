@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './setup'
 import CMS, { init } from 'netlify-cms'
+import 'netlify-cms/dist/cms.css'
 import config from './config'
 
 CMS.init = init
