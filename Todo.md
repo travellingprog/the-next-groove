@@ -1,10 +1,5 @@
 # To Do
 
-## Next Steps
-
-- Need to create article view, with hardcoded image and content
-- Need to figure out how to make NetlifyCMS create the data I need
-
 ## URL Hierarchy
 
 ```
@@ -22,8 +17,6 @@
 
 ## Rendering
 
-To make static snapshots or not?
-
-NO
+Not going to make a static snapshot of the entire site.
 
 

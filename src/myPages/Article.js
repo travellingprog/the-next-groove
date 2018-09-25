@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import fscreen from 'fscreen'
 
-import ArticleContent from './ArticleContent'
+import ArticleContent from './article/ArticleContent'
+import CMSItemLoader from 'myComponents/CMSItemLoader'
 
-import closeBtnImg from './images/times-outline-48px-blue.png'
-import fullScreenImg from './images/screen-full-32px-blue.png'
-import menuImg from './images/th-menu-48px-blue.png'
-import smallLogo from './images/Logo-small-x35.png'
-import viewImg from './images/eye-outline-48x-blue.png'
+import closeBtnImg from 'myAssets/images/times-outline-48px-blue.png'
+import fullScreenImg from 'myAssets/images/screen-full-32px-blue.png'
+import menuImg from 'myAssets/images/th-menu-48px-blue.png'
+import smallLogo from 'myAssets/images/Logo-small-x35.png'
+import viewImg from 'myAssets/images/eye-outline-48x-blue.png'
 import './Article.css'
 
 class Article extends Component {
@@ -37,6 +38,12 @@ class Article extends Component {
   }
 
   render () {
+    let articlePath = ''
+    const { match: routeMatch, previewData } = this.props
+    if (!previewData) {
+      articlePath = routeMatch.params.articlePath
+    }
+
     const { menuOpen, selectorOpen } = this.state
 
     const stickyClass = 'tng-Article-stickyBar' + (menuOpen ? ' is-shifted' : '')
@@ -89,7 +96,13 @@ class Article extends Component {
 
         { /* Article Content */ }
         <div className={contentClass} ref={this.contentRef}>
-          <ArticleContent />
+          <CMSItemLoader
+            itemPath={`articles/${articlePath}.json`}
+            previewData={previewData}
+            renderOnData={data =>
+              <ArticleContent data={data} />
+            }
+          />
         </div>
 
         { /* View Selector */ }

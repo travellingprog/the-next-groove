@@ -1,6 +1,6 @@
 import React from 'react'
 
-import logo from './logo.svg'
+import logo from 'myAssets/images/logo.svg'
 import './Home.css'
 
 const Home = () => (

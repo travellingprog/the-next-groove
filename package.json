@@ -4,21 +4,31 @@
   "private": true,
   "dependencies": {
     "fscreen": "^1.0.2",
-    "netlify-cms": "^1.9.3",
+    "markdown-to-jsx": "^6.7.3",
+    "netlify-cms": "^2.1.2",
     "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-loadable": "^5.5.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^1.1.5"
+    "react-scripts": "^2.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "NODE_PATH=./src react-scripts start",
+    "build": "NODE_PATH=./src react-scripts build",
+    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "standard": {
-    "parser": "babel-eslint"
-  }
+    "parser": "babel-eslint",
+    "global": [
+      "fetch"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

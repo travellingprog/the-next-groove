@@ -1,5 +1,6 @@
 .tng-Article {
   background-color: hsl(0, 0%, 98%);
+  min-height: 100vh;
 }
 
 /* Sticky Bar */
@@ -173,7 +174,7 @@
 }
 
 .tng-Article-viewMode.is-selected:before {
-  background-image: url(./images/arrow-right-outline-48px-green.png);
+  background-image: url('../myAssets/images/arrow-right-outline-48px-green.png');
   background-size: contain;
   content: '';
   display: block;
