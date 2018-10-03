@@ -7,7 +7,6 @@ class PreviewContainer extends Component {
     // It is based on stackoverflow answer: https://stackoverflow.com/a/4613196/2051913
     if (window.parent) {
       let previewIframe
-      const arrStyleSheets = window.parent.document.getElementsByTagName('style')
 
       for (let iframe of document.querySelectorAll('iframe')) {
         let hasPreview = !!iframe.contentDocument.querySelector('.tng-PreviewContainer')
@@ -19,10 +18,10 @@ class PreviewContainer extends Component {
 
       if (previewIframe) {
         const previewPaneHead = previewIframe.contentDocument.head
+        const stylesheets = window.parent.document.querySelectorAll('style, link[rel="stylesheet"]')
 
-        for (let i = 0; i < arrStyleSheets.length; i++) {
-          let clone = arrStyleSheets[i].cloneNode(true)
-          previewPaneHead.appendChild(clone)
+        for (let stylesheet of stylesheets) {
+          previewPaneHead.appendChild(stylesheet.cloneNode(true))
         }
       }
     }
