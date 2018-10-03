@@ -3,32 +3,32 @@
 /** Louis George Cafe **/
 @font-face {
   font-family: "Louis George Cafe Web";
-  src: url("./fonts/LouisGeorgeCafe.woff2") format("woff2"),
-    url("./fonts/LouisGeorgeCafe.woff") format("woff");
+  src: url("myAssets/fonts/LouisGeorgeCafe.woff2") format("woff2"),
+    url("myAssets/fonts/LouisGeorgeCafe.woff") format("woff");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Louis George Cafe Web";
-  src: url("./fonts/LouisGeorgeCafeItalic.woff2") format("woff2"),
-    url("./fonts/LouisGeorgeCafeItalic.woff") format("woff");
+  src: url("myAssets/fonts/LouisGeorgeCafeItalic.woff2") format("woff2"),
+    url("myAssets/fonts/LouisGeorgeCafeItalic.woff") format("woff");
   font-style: italic;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Louis George Cafe Web";
-  src: url("./fonts/LouisGeorgeCafeBold.woff2") format("woff2"),
-    url("./fonts/LouisGeorgeCafeBold.woff") format("woff");
+  src: url("myAssets/fonts/LouisGeorgeCafeBold.woff2") format("woff2"),
+    url("myAssets/fonts/LouisGeorgeCafeBold.woff") format("woff");
   font-style: normal;
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Louis George Cafe Web";
-  src: url("./fonts/LouisGeorgeCafeBoldItalic.woff2") format("woff2"),
-    url("./fonts/LouisGeorgeCafeBoldItalic.woff") format("woff");
+  src: url("myAssets/fonts/LouisGeorgeCafeBoldItalic.woff2") format("woff2"),
+    url("myAssets/fonts/LouisGeorgeCafeBoldItalic.woff") format("woff");
   font-style: italic;
   font-weight: 700;
 }
@@ -36,8 +36,8 @@
 /** IBM Plex Serif **/
 @font-face {
   font-family: "IBM Plex Serif Web";
-  src: url("./fonts/IBMPlexSerifBold.woff2") format("woff2"),
-    url("./fonts/IBMPlexSerifBold.woff") format("woff");
+  src: url("myAssets/fonts/IBMPlexSerifBold.woff2") format("woff2"),
+    url("myAssets/fonts/IBMPlexSerifBold.woff") format("woff");
   font-style: normal;
   font-weight: 700;
 }
