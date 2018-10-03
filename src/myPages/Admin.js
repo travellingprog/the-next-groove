@@ -11,11 +11,16 @@ CMS.init = init
 class Admin extends Component {
   componentDidMount () {
     CMS.init({ config })
-    CMS.registerPreviewTemplate('articles', ({ entry }) =>
-      <PreviewContainer>
-        <Article previewData={entry.toJS().data} />
-      </PreviewContainer>
-    )
+    CMS.registerPreviewTemplate('articles', ({ entry, getAsset }) => {
+      const previewData = entry.toJS().data
+      previewData.mainImage = previewData.mainImage && getAsset(previewData.mainImage).toString()
+
+      return (
+        <PreviewContainer>
+          <Article previewData={previewData} />
+        </PreviewContainer>
+      )
+    })
   }
 
   render () {
