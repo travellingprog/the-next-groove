@@ -4,12 +4,6 @@ import MarkdownRenderer from 'myComponents/MarkdownRenderer'
 import logoImg from 'myAssets/images/Logo-x45.png'
 import './ArticleContent.css'
 
-const iframes = [
-  'Addison Groove - Footcrab',
-  'Instra:mental - Sakura',
-  'Boddika mix'
-]
-
 const categoryTexts = {
   MUSINGS: 'Musing',
   MIXES: 'Showcase Mix',
@@ -17,33 +11,13 @@ const categoryTexts = {
 }
 
 class ArticleContent extends Component {
-  // iframeRefs = iframes.map(() => React.createRef())
-
   state = {
-    aspectPercentages: iframes.map(() => ''),
     bgShift: 0
   }
 
   componentDidMount () {
     this.setBackgroundImagesShift()
-    // this.saveAspectRatios()
   }
-
-  /**
-   * Get the aspect percentages of all provided iframes, unless they have a dimension that is not
-   * defined in pixels (e.g. Soundcloud iframe code sets width as 100%). These aspect percentages
-   * can be used to make the iframe responsive
-   */
-  // saveAspectRatios () {
-  //   let aspectPercentages = this.iframeRefs.map(ref => {
-  //     let elem = ref.current
-  //     let isPixelNumbers = /^\d+$/.test(`${elem.width}${elem.height}`)
-  //     return isPixelNumbers
-  //       ? `${elem.height * 100 / elem.width}%` : ''
-  //   })
-
-  //   this.setState({ aspectPercentages })
-  // }
 
   /**
    * check the dimension of the article's main image, to figure out how much to shift the adjacent
@@ -100,10 +74,3 @@ class ArticleContent extends Component {
 }
 
 export default ArticleContent
-
-// <div className={aspectPercentages[0] ? 'tng-ArticleContent-fluidFrameWrapper' : ''}
-//   style={aspectPercentages[0] ? { paddingBottom: aspectPercentages[0] } : {}} >
-//   <iframe width='560' height='315' src='https://www.youtube.com/embed/gWfiog1Ure4'
-//     frameBorder='0' allow='autoplay; encrypted-media' allowFullScreen
-//     ref={this.iframeRefs[0]} title={iframes[0]} />
-// </div>

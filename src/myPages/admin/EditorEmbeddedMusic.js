@@ -13,7 +13,7 @@ export default {
       widget: 'text'
     }
   ],
-  pattern: /^<EmbeddedMusic\s+title="(\w)"\s+iframe={(.*)}\s+\/>/,
+  pattern: /^<EmbeddedMusic\s+title="(.*)"\s+iframe={(.*)}\s+\/>/,
   fromBlock: regexMatch => ({
     title: regexMatch[1],
     iframe: regexMatch[2]
