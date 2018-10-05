@@ -1,6 +1,7 @@
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
+import EmbeddedMusic from './markdownRenderer/EmbeddedMusic'
 import SpecialText from './markdownRenderer/SpecialText'
 
 const MarkdownRenderer = ({ md }) => (
@@ -8,6 +9,7 @@ const MarkdownRenderer = ({ md }) => (
     children={md}
     options={{
       overrides: {
+        EmbeddedMusic,
         SpecialText
       }
     }}
