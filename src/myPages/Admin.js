@@ -3,7 +3,7 @@ import './admin/setup'
 import CMS, { init } from 'netlify-cms'
 
 import Article from './Article'
-import EditorAlignContent from './admin/EditorAlignContent'
+import EditorSpecialText from './admin/EditorSpecialText'
 import PreviewContainer from './admin/PreviewContainer'
 import config from './admin/config'
 
@@ -24,7 +24,7 @@ class Admin extends Component {
       )
     })
 
-    CMS.registerEditorComponent(EditorAlignContent)
+    CMS.registerEditorComponent(EditorSpecialText)
   }
 
   render () {

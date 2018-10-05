@@ -1,0 +1,27 @@
+.tng-SpecialText--left + * {
+  text-align: left;
+}
+
+.tng-SpecialText--center + * {
+  text-align: center;
+}
+
+.tng-SpecialText--right + * {
+  text-align: right;
+}
+
+.tng-SpecialText--normal + * {
+  font-size: 1em;
+}
+
+.tng-SpecialText--small + * {
+  font-size: 0.83em;
+}
+
+.tng-SpecialText--smaller + * {
+  font-size: 0.67em;
+}
+
+.tng-SpecialText--smallest + * {
+  font-size: 0.5em;
+}
