@@ -1,0 +1,11 @@
+.tng-AlignContent--left + * {
+  text-align: left;
+}
+
+.tng-AlignContent--center + * {
+  text-align: center;
+}
+
+.tng-AlignContent--right + * {
+  text-align: right;
+}

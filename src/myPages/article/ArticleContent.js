@@ -1,6 +1,6 @@
-import Markdown from 'markdown-to-jsx'
 import React, { Component } from 'react'
 
+import MarkdownRenderer from 'myComponents/MarkdownRenderer'
 import logoImg from 'myAssets/images/Logo-x45.png'
 import './ArticleContent.css'
 
@@ -92,7 +92,7 @@ class ArticleContent extends Component {
           <div className='tng-ArticleContent-publishDate'>published on {publicationDate}</div>
         </div>
         <div className='tng-ArticleContent-text'>
-          <Markdown>{ body || '' }</Markdown>
+          <MarkdownRenderer md={body || ''} />
         </div>
       </div>
     )
