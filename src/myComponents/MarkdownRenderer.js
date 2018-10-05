@@ -1,14 +1,14 @@
 import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
-import AlignContent from './markdownRenderer/AlignContent'
+import SpecialText from './markdownRenderer/SpecialText'
 
 const MarkdownRenderer = ({ md }) => (
   <Markdown
     children={md}
     options={{
       overrides: {
-        AlignContent
+        SpecialText
       }
     }}
   />
