@@ -13,12 +13,12 @@ export default {
       widget: 'text'
     }
   ],
-  pattern: /^<EmbeddedMusic\s+title="(\w)"\s+iframe={`(.*)`}\s+\/>/,
+  pattern: /^<EmbeddedMusic\s+title="(\w)"\s+iframe={(.*)}\s+\/>/,
   fromBlock: regexMatch => ({
     title: regexMatch[1],
-    iframe: regexMatch[2] && regexMatch[2].replace(/&#96;/g, '`').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    iframe: regexMatch[2]
   }),
   toBlock: ({ title, iframe }) =>
-    `<EmbeddedMusic title="${title}" iframe={\`${iframe ? iframe.replace(/`/g, '&#96;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : ''}\`} />`,
+    `<EmbeddedMusic title="${title || ''}" iframe={${iframe || ''}} />`,
   toPreview: () => `<div></div>` // will be overriden by MarkdownRenderer
 }
