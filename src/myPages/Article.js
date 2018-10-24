@@ -3,6 +3,7 @@ import fscreen from 'fscreen'
 
 import ArticleContent from './article/ArticleContent'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
+import sc from 'myUtils/suitClass'
 
 import closeBtnImg from 'myAssets/images/times-outline-48px-blue.png'
 import fullScreenImg from 'myAssets/images/screen-full-32px-blue.png'
@@ -16,7 +17,8 @@ class Article extends Component {
 
   state = {
     menuOpen: false,
-    selectorOpen: false
+    selectorOpen: false,
+    viewMode: 'textAndMusic'
   }
 
   /** Request to open the article in fullscreen */
@@ -25,6 +27,11 @@ class Article extends Component {
     if (fscreen.fullscreenEnabled) {
       fscreen.requestFullscreen(contentElem)
     }
+  }
+
+  /** Set the view mode of the article, to change what content is displayed */
+  setViewMode (viewMode) {
+    this.setState({ viewMode, selectorOpen: false })
   }
 
   /** Change whether the menu is open or closed */
@@ -44,18 +51,14 @@ class Article extends Component {
       articlePath = routeMatch.params.articlePath
     }
 
-    const { menuOpen, selectorOpen } = this.state
-
-    const stickyClass = 'tng-Article-stickyBar' + (menuOpen ? ' is-shifted' : '')
-    const menuClass = 'tng-Article-menu' + (menuOpen ? ' is-visible' : '')
-    const contentClass = 'tng-Article-content' + (menuOpen ? ' is-shifted' : '')
-    const selectorClass = 'tng-Article-viewSelector' + (selectorOpen ? ' is-visible' : '')
+    const { menuOpen, selectorOpen, viewMode } = this.state
+    const musicOnly = (viewMode === 'musicOnly');
 
     return (
       <div className='tng-Article'>
 
         { /* Sticky Bar */ }
-        <div className={stickyClass}>
+        <div className={sc('tng-Article-stickyBar', menuOpen && 'is-shifted')}>
           <img className='tng-Article-smallLogo' src={smallLogo} alt='' />
           <div className='tng-Article-stickyBtns'>
             { fscreen.fullscreenEnabled &&
@@ -73,7 +76,7 @@ class Article extends Component {
         </div>
 
         { /* Menu */ }
-        <div className={menuClass}>
+        <div className={sc('tng-Article-menu', menuOpen && 'is-visible')}>
           <nav className='tng-Article-nav'>
             <ul className='tng-Article-navList'>
               <li>
@@ -94,23 +97,50 @@ class Article extends Component {
           </button>
         </div>
 
+        { /* "Music Only" Indicator */ }
+        <div
+          className={sc(
+            'tng-Article-indicator', musicOnly && 'is-visible', menuOpen && 'is-shifted'
+          )}
+        >
+          music only
+        </div>
+
         { /* Article Content */ }
-        <div className={contentClass} ref={this.contentRef}>
+        <div
+          className={sc(
+            'tng-Article-content', menuOpen && ' is-shifted', musicOnly && 'is-musicOnly'
+          )}
+          ref={this.contentRef}>
           <CMSItemLoader
             itemPath={`articles/${articlePath}.json`}
             previewData={previewData}
             renderOnData={data =>
-              <ArticleContent data={data} />
+              <ArticleContent data={data} viewMode={viewMode} />
             }
           />
         </div>
 
         { /* View Selector */ }
-        <div className={selectorClass}>
+        <div className={sc('tng-Article-viewSelector', selectorOpen && ' is-visible')}>
           <div>
             <div className='tng-Article-selectorTitle'>select view mode</div>
-            <div><button className='tng-Article-viewMode is-selected'>Text + Music</button></div>
-            <div><button className='tng-Article-viewMode'>Music only</button></div>
+            <div>
+              <button
+                className={sc('tng-Article-viewMode', !musicOnly && 'is-selected')}
+                onClick={() => this.setViewMode('textAndMusic')}
+              >
+                Text + Music
+              </button>
+            </div>
+            <div>
+              <button
+                className={sc('tng-Article-viewMode', musicOnly && 'is-selected')}
+                onClick={() => this.setViewMode('musicOnly')}
+              >
+                Music only
+              </button>
+            </div>
             <div>
               <button className='tng-Article-closeSelectorBtn' onClick={this.toggleSelector}>
                 <strong>x close</strong>

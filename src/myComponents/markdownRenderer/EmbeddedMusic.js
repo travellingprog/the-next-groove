@@ -42,7 +42,7 @@ class EmbeddedMusic extends Component {
     const { title, iframe } = this.props
 
     return (
-      <div>
+      <div className='tng-EmbeddedMusic'>
         <div className='tng-EmbeddedMusic-title'>{title}</div>
         <div className={aspectPercentage ? 'tng-EmbeddedMusic-fluidFrameWrapper' : ''}
           ref={this.iframeWrapperRef}

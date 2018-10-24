@@ -1,3 +1,7 @@
+.tng-EmbeddedMusic {
+  z-index: 1;
+}
+
 .tng-EmbeddedMusic-title {
   display: none;
 }
