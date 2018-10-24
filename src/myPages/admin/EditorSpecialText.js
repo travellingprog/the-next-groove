@@ -25,7 +25,7 @@ export default {
       hint: 'These settings will affect the next paragraph'
     }
   ],
-  pattern: /^<SpecialText\s+align="([A-Z]+)"\s+size="([A-Z]+)"\s+\/>/,
+  pattern: /^<SpecialText\s+align="([A-Z]*)"\s+size="([A-Z]*)"\s+\/>/,
   fromBlock: regexMatch => ({
     align: regexMatch[1],
     size: regexMatch[2]

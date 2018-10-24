@@ -4,5 +4,5 @@
   "mainImage": "/cms-dev-content/uploads/palette.png",
   "category": "PLAYLISTS",
   "summary": "Great playlist!",
-  "body": "what a body!"
+  "body": "<EmbeddedMusic title=\"Funny Video\" iframe={<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/B7bqAsxee4I\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>} />\n\nwhat a body!"
 }
