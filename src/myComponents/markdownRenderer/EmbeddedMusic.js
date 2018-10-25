@@ -7,11 +7,13 @@ class EmbeddedMusic extends Component {
   iframeWrapperRef = React.createRef()
 
   state = {
-    aspectPercentage: ''
+    aspectPercentage: '',
+    trackNumber: ''
   }
 
   componentDidMount () {
     this.saveAspectRatio()
+    this.setState({ trackNumber: this.props.getTrackNumber() })
   }
 
   componentDidUpdate (prevProps) {
@@ -39,8 +41,8 @@ class EmbeddedMusic extends Component {
   }
 
   render () {
-    const { aspectPercentage } = this.state
-    const { extraClass, showTitle, trackNumber, title, iframe  } = this.props
+    const { aspectPercentage, trackNumber } = this.state
+    const { extraClass, showTitle, title, iframe  } = this.props
 
     return (
       <div className={`tng-EmbeddedMusic ${extraClass}`}>

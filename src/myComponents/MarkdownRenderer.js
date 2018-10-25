@@ -15,14 +15,14 @@ const MarkdownRenderer = ({ md, musicOnly = false }) => {
       children={md}
       options={{
         overrides: {
-          EmbeddedMusic: (propsInMarkdown) => (
-            <EmbeddedMusic
-              extraClass='tng-MarkdownRenderer-music'
-              showTitle={musicOnly}
-              trackNumber={trackNumber++}
-              {...propsInMarkdown}
-            />
-          ),
+          EmbeddedMusic: {
+            component: EmbeddedMusic,
+            props: {
+              extraClass: 'tng-MarkdownRenderer-music',
+              getTrackNumber: () => trackNumber++,
+              showTitle: musicOnly
+            }
+          },
           SpecialText
         }
       }}
