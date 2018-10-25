@@ -17,8 +17,8 @@ class Article extends Component {
 
   state = {
     menuOpen: false,
-    selectorOpen: false,
-    viewMode: 'textAndMusic'
+    musicOnly: false,
+    selectorOpen: false
   }
 
   /** Request to open the article in fullscreen */
@@ -29,9 +29,9 @@ class Article extends Component {
     }
   }
 
-  /** Set the view mode of the article, to change what content is displayed */
-  setViewMode (viewMode) {
-    this.setState({ viewMode, selectorOpen: false })
+  /** Set whether Music Only mode is on, to change what content is displayed */
+  setMusicOnly (musicOnly) {
+    this.setState({ musicOnly, selectorOpen: false })
   }
 
   /** Change whether the menu is open or closed */
@@ -51,8 +51,7 @@ class Article extends Component {
       articlePath = routeMatch.params.articlePath
     }
 
-    const { menuOpen, selectorOpen, viewMode } = this.state
-    const musicOnly = (viewMode === 'musicOnly');
+    const { menuOpen, musicOnly, selectorOpen } = this.state
 
     return (
       <div className='tng-Article'>
@@ -116,7 +115,7 @@ class Article extends Component {
             itemPath={`articles/${articlePath}.json`}
             previewData={previewData}
             renderOnData={data =>
-              <ArticleContent data={data} viewMode={viewMode} />
+              <ArticleContent data={data} musicOnly={musicOnly} />
             }
           />
         </div>
@@ -128,7 +127,7 @@ class Article extends Component {
             <div>
               <button
                 className={sc('tng-Article-viewMode', !musicOnly && 'is-selected')}
-                onClick={() => this.setViewMode('textAndMusic')}
+                onClick={() => this.setMusicOnly(false)}
               >
                 Text + Music
               </button>
@@ -136,7 +135,7 @@ class Article extends Component {
             <div>
               <button
                 className={sc('tng-Article-viewMode', musicOnly && 'is-selected')}
-                onClick={() => this.setViewMode('musicOnly')}
+                onClick={() => this.setMusicOnly(true)}
               >
                 Music only
               </button>

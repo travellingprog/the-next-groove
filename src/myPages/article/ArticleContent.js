@@ -37,8 +37,9 @@ class ArticleContent extends Component {
   }
 
   render () {
-    const { publicationDate, title, mainImage, category, body } = this.props.data
+    const { data, musicOnly } = this.props
     const { bgShift } = this.state
+    const { publicationDate, title, mainImage, category, body } = data
 
     let bgLStyle = { backgroundImage: `url(${mainImage})` }
     let bgRStyle = { ...bgLStyle }
@@ -66,7 +67,7 @@ class ArticleContent extends Component {
           <div className='tng-ArticleContent-publishDate'>published on {publicationDate}</div>
         </div>
         <div className='tng-ArticleContent-text'>
-          <MarkdownRenderer md={body || ''} />
+          <MarkdownRenderer md={body || ''} musicOnly={musicOnly} />
         </div>
       </div>
     )
