@@ -3,7 +3,11 @@
 }
 
 .tng-EmbeddedMusic-title {
+  color: hsl(138, 82%, 28%);
   display: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 30px 0 10px;
 }
 
 .tng-EmbeddedMusic-title.is-visible {
