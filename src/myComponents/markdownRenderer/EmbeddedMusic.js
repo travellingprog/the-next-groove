@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 
+import sc from 'myUtils/suitClass'
 import './EmbeddedMusic.css'
 
 class EmbeddedMusic extends Component {
   iframeWrapperRef = React.createRef()
 
   state = {
-    aspectPercentage: ''
+    aspectPercentage: '',
+    trackNumber: ''
   }
 
   componentDidMount () {
     this.saveAspectRatio()
+    this.setState({ trackNumber: this.props.getTrackNumber() })
   }
 
   componentDidUpdate (prevProps) {
@@ -38,12 +41,14 @@ class EmbeddedMusic extends Component {
   }
 
   render () {
-    const { aspectPercentage } = this.state
-    const { title, iframe } = this.props
+    const { aspectPercentage, trackNumber } = this.state
+    const { extraClass, showTitle, title, iframe  } = this.props
 
     return (
-      <div>
-        <div className='tng-EmbeddedMusic-title'>{title}</div>
+      <div className={`tng-EmbeddedMusic ${extraClass}`}>
+        <div className={sc('tng-EmbeddedMusic-title', showTitle && 'is-visible')}>
+          {trackNumber}. {title}
+        </div>
         <div className={aspectPercentage ? 'tng-EmbeddedMusic-fluidFrameWrapper' : ''}
           ref={this.iframeWrapperRef}
           style={aspectPercentage ? { paddingBottom: aspectPercentage } : {}}>

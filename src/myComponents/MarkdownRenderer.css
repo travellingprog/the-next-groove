@@ -1,0 +1,7 @@
+.tng-MarkdownRenderer.is-showingMusicOnly > * {
+  display: none;
+}
+
+.tng-MarkdownRenderer.is-showingMusicOnly > .tng-MarkdownRenderer-music {
+  display: block;
+}

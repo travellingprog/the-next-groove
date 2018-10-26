@@ -113,6 +113,30 @@
   width: 35px;
 }
 
+/* Music-Only Indicator */
+
+.tng-Article-indicator {
+  background-color: #E28628;
+  color: #FFFFFF;
+  display: none;
+  height: 22px;
+  left: 0;
+  line-height: 22px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  text-align: center;
+  transition: transform 250ms;
+  z-index: 10;
+}
+
+.tng-Article-indicator.is-shifted {
+  transform: translate3d(calc(63px - 100vw), 0, 0);
+}
+
+.tng-Article-indicator.is-visible {
+  display: block;
+}
 
 /* Article Content */
 
@@ -127,6 +151,9 @@
   transform: translate3d(calc(63px - 100vw), 0, 0);
 }
 
+.tng-Article-content.is-musicOnly {
+  padding-top: 22px;
+}
 
 /* View Selector */
 
