@@ -6,7 +6,16 @@ import './Home.css'
 
 const Home = () => (
   <div className='tng-Home'>
-    Home here
+    <CMSItemLoader
+      itemPath={`generated/homePage.json`}
+      renderOnData={data =>
+        <div>
+          {data.latestArticles.map((article, idx) =>
+            <pre key={idx}>{JSON.stringify(article, null, 2)}</pre>
+          )}
+        </div>
+      }
+    />
   </div>
 )
 
