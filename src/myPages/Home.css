@@ -1,28 +1,3 @@
-.my-Home {
-  text-align: center;
-}
-
-.my-Home-logo {
-  animation: my-Home-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.my-Home-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.my-Home-title {
-  font-size: 1.5em;
-}
-
-.my-Home-intro {
-  font-size: large;
-}
-
-@keyframes my-Home-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.tng-Home {
+  /* CSS goes here */
 }
