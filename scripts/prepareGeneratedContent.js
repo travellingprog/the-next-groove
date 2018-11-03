@@ -21,7 +21,8 @@ async function prepareGeneratedContent () {
     const jsonPaths = getJsonPaths(process.env.NODE_ENV)
 
     const articlePaths = await glob(`${jsonPaths.articleFolder}/**.json`)
-    let articles = []    for (let articlePath of articlePaths) {
+    let articles = []
+    for (let articlePath of articlePaths) {
       articles.push(await fse.readJson(articlePath))
     }
 
@@ -46,7 +47,7 @@ function getJsonPaths (NODE_ENV) {
   return {
     articleFolder: `${basePath}/articles`,
     categoryPrefix: `${basePath}/generated/category`,
-    homePage: `${basePath}/generated/homePage.json`,
+    homePage: `${basePath}/generated/homePage.json`
   }
 }
 
@@ -66,11 +67,11 @@ async function prepareCategoryPage (category, articles, filePath) {
   const categoryArticles = articles
     .filter(article => article.category === category)
     .map(({ publicationDate, title, mainImage, summary }) => (
-      { publicationDate, title, mainImage, summary }  // take only summary properties
+      { publicationDate, title, mainImage, summary } // take only summary properties
     ))
 
   await fse.outputJson(filePath, { categoryArticles })
 }
 
-module.exports = prepareGeneratedContent;
-if (require.main === module) module.exports();
+module.exports = prepareGeneratedContent
+if (require.main === module) module.exports()

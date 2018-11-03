@@ -1,5 +1,7 @@
 import React from 'react'
 
+import CMSItemLoader from 'myComponents/CMSItemLoader'
+
 import './Home.css'
 
 const Home = () => (

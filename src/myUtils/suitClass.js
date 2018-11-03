@@ -13,4 +13,4 @@ function suitClass (baseClass, ...otherClasses) {
   return [baseClass, ...otherClasses].join(' ')
 }
 
-export default suitClass;
+export default suitClass
