@@ -42,7 +42,7 @@ class EmbeddedMusic extends Component {
 
   render () {
     const { aspectPercentage, trackNumber } = this.state
-    const { extraClass, showTitle, title, iframe  } = this.props
+    const { extraClass, showTitle, title, iframe } = this.props
 
     return (
       <div className={`tng-EmbeddedMusic ${extraClass}`}>
