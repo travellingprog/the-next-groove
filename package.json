@@ -35,7 +35,10 @@
     "build:content": "NODE_ENV=production node scripts/prepareGeneratedContent",
     "lint": "standard",
     "start": "NODE_PATH=./src react-scripts start",
-    "test": "NODE_PATH=./src react-scripts test --env=jsdom"
+    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
+    "update-dev": "npm-run-all update-dev:base-content update-dev:generated",
+    "update-dev:base-content": "./scripts/updateDevContent.sh",
+    "update-dev:generated": "NODE_ENV=development node scripts/prepareGeneratedContent"
   },
   "standard": {
     "parser": "babel-eslint",
