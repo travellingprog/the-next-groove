@@ -6,7 +6,6 @@ import 'normalize.css'
 
 import './index.css'
 import NoContent from 'myPages/NoContent'
-import registerServiceWorker from 'myUtils/registerServiceWorker'
 
 const Loading = () => <div>Loading...</div>
 
@@ -38,4 +37,3 @@ const App = () => (
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
