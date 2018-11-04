@@ -6,8 +6,9 @@
 # testing
 /coverage
 
-# production
+# production, including generated JSON files
 /build
+/public/cms-content/generated
 
 # misc
 .DS_Store
