@@ -1,0 +1,49 @@
+.tng-ArticleHeader-imgContainer {
+  height: 66.66vw;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.tng-ArticleHeader-image {
+  height: 66.66vw;
+  position: relative;
+  width: auto;
+  z-index: 1;
+}
+
+.tng-ArticleHeader-imgBackground {
+  background-position: top left;
+  background-size: 100vw auto;
+  height: 66.66vw;
+  left: 0;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  transition: transform 1200ms;
+  width: 50vw;
+  z-index: 0;
+}
+
+.tng-ArticleHeader-imgBackground--right {
+  background-position: top right;
+  left: 50vw;
+}
+
+.tng-ArticleHeader-titleBox {
+  background-color: hsl(0, 0%, 98%);
+  border-top: 1px solid hsla(0, 0%, 0%, 10%);
+  color: hsl(138, 82%, 28%);
+  min-height: 30px;
+  padding: 10px 15px 0;
+  position: relative;
+  top: -30px;
+  width: calc(100vw - 15px);
+  z-index: 2;
+}
+
+.tng-ArticleHeader-title {
+  font-family: "IBM Plex Serif Web", serif;
+  font-size: 1.3125em;
+  font-weight: bold;
+}
