@@ -1,3 +1,30 @@
 .tng-Home {
-  /* CSS goes here */
+  background-color: hsl(0, 0%, 98%);
+}
+
+.tng-Home-logoContainer {
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.tng-Home-logo {
+  height: auto;
+  vertical-align: middle;
+  width: 300px;
+}
+
+.tng-Home-item + .tng-Home-item {
+  margin-top: 10px;
+}
+
+.tng-Home-category {
+  line-height: 1.5;
+}
+
+.tng-Home-date {
+  color: hsl(193, 66%, 33%);
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
 }
