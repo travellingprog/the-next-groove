@@ -1,6 +1,11 @@
-/** TODO add description */
+/**
+ * This is a block that represents an article. It has the main image of the article,
+ * as well as the title. It can also hold other elements within it, and can have a link to the
+ * article itself.
+ */
 
 import React, { Component } from 'react'
+import OptionalLinkWrapper from './OptionalLinkWrapper'
 
 import './ArticleHeader.css'
 
@@ -31,7 +36,7 @@ class ArticleHeader extends Component {
   }
 
   render () {
-    const { children, image, title } = this.props
+    const { children, image, title, link } = this.props
     const { bgShift } = this.state
 
     let bgLStyle = { backgroundImage: `url(${image})` }
@@ -43,17 +48,21 @@ class ArticleHeader extends Component {
 
     return (
       <div className='tng-ArticleHeader'>
-        <div className='tng-ArticleHeader-imgContainer'>
-          <div className='tng-ArticleHeader-imgBackground' style={bgLStyle} />
-          <div
-            className='tng-ArticleHeader-imgBackground tng-ArticleHeader-imgBackground--right'
-            style={bgRStyle}
-          />
-          <img alt='' className='tng-ArticleHeader-image' src={image} />
-        </div>
+        <OptionalLinkWrapper link={link}>
+          <div className='tng-ArticleHeader-imgContainer'>
+            <div className='tng-ArticleHeader-imgBackground' style={bgLStyle} />
+            <div
+              className='tng-ArticleHeader-imgBackground tng-ArticleHeader-imgBackground--right'
+              style={bgRStyle}
+            />
+            <img alt='' className='tng-ArticleHeader-image' src={image} />
+          </div>
+        </OptionalLinkWrapper>
         <div className='tng-ArticleHeader-titleBox'>
-          <div className='tng-ArticleHeader-title'>{title}</div>
-          { children }
+          <OptionalLinkWrapper link={link}>
+            <div className='tng-ArticleHeader-title'>{title}</div>
+            { children }
+          </OptionalLinkWrapper>
         </div>
       </div>
     )

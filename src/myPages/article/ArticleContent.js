@@ -1,15 +1,11 @@
+/** This renders the actual content of our article, into the Article page */
 import React from 'react'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import MarkdownRenderer from 'myComponents/MarkdownRenderer'
 import logoImg from 'myAssets/images/Logo-x45.png'
+import { categoryTexts } from 'myUtils/constants'
 import './ArticleContent.css'
-
-const categoryTexts = {
-  MUSINGS: 'Musing',
-  MIXES: 'Showcase Mix',
-  PLAYLISTS: 'Playlist'
-}
 
 const ArticleContent = ({ data, musicOnly }) => {
   const { publicationDate, title, mainImage, category, body } = data

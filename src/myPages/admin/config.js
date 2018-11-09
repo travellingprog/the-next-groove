@@ -1,3 +1,5 @@
+import { categoryTexts } from 'myUtils/constants'
+
 const isProd = process.env.NODE_ENV === 'production'
 const saveFolder = isProd ? 'cms-content' : 'cms-dev-content'
 
@@ -41,11 +43,12 @@ export default {
           name: 'category',
           label: 'Category',
           widget: 'select',
-          options: [
-            { label: 'Musing', value: 'MUSINGS' },
-            { label: 'Showcase Mix', value: 'MIXES' },
-            { label: 'Playlist', value: 'PLAYLISTS' }
-          ]
+          options: Object.keys(categoryTexts).map(key => (
+            {
+              value: key,
+              label: categoryTexts[key]
+            }
+          ))
         },
         {
           name: 'summary',

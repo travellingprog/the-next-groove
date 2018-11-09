@@ -17,7 +17,10 @@ async function prepareGeneratedContent () {
     const articlePaths = await glob(`${jsonPaths.articleFolder}/**.json`)
     let articles = []
     for (let articlePath of articlePaths) {
-      articles.push(await fse.readJson(articlePath))
+      articles.push({
+        ...(await fse.readJson(articlePath)),
+        urlPath: getArticleUrl(articlePath)
+      })
     }
 
     await prepareHomePage(articles, jsonPaths.homePage)
@@ -43,6 +46,12 @@ function getJsonPaths (NODE_ENV) {
     categoryPrefix: `${basePath}/generated/category`,
     homePage: `${basePath}/generated/homePage.json`
   }
+}
+
+/** Get the path segment of the URL for an article, based on its JSON filename */
+function getArticleUrl (articlePath) {
+  const { name } = path.parse(articlePath);
+  return `/article/${name}`;
 }
 
 /** Prepare the content of the home page by getting the latest articles */

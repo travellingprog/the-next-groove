@@ -13,3 +13,18 @@
   vertical-align: middle;
   width: 300px;
 }
+
+.tng-Home-item + .tng-Home-item {
+  margin-top: 10px;
+}
+
+.tng-Home-category {
+  line-height: 1.5;
+}
+
+.tng-Home-date {
+  color: hsl(193, 66%, 33%);
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+}
