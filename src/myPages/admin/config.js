@@ -53,7 +53,7 @@ export default {
         {
           name: 'summary',
           label: 'Summary',
-          widget: 'text'
+          widget: 'text160Limit'
         },
         {
           name: 'body',

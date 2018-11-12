@@ -16,6 +16,7 @@
     "netlify-cms-lib-auth": "^2.0.0",
     "netlify-cms-lib-util": "^2.0.0",
     "netlify-cms-ui-default": "^2.0.0",
+    "netlify-cms-widget-text": "^2.0.5",
     "normalize.css": "^8",
     "prop-types": "^15.6.2",
     "react": "^16",
