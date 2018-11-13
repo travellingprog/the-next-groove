@@ -25,6 +25,7 @@ const Home = () => (
                   <span className='tng-Home-date'>/ {article.publicationDate}</span>
                 </div>
               </ArticleHeader>
+              <div className='tng-Home-articleSummary'>{article.summary}</div>
             </div>
           )}
         </div>

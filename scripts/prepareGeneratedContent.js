@@ -50,8 +50,8 @@ function getJsonPaths (NODE_ENV) {
 
 /** Get the path segment of the URL for an article, based on its JSON filename */
 function getArticleUrl (articlePath) {
-  const { name } = path.parse(articlePath);
-  return `/article/${name}`;
+  const { name } = path.parse(articlePath)
+  return `/article/${name}`
 }
 
 /** Prepare the content of the home page by getting the latest articles */
