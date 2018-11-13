@@ -1,15 +1,15 @@
+/**
+ * This is the page that is displayed when viewing an article
+ */
 import React, { Component } from 'react'
 import fscreen from 'fscreen'
 
 import ArticleContent from './article/ArticleContent'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
+import * as StickyBar from 'myComponents/StickyBar'
 import sc from 'myUtils/suitClass'
 
 import closeBtnImg from 'myAssets/images/times-outline-48px-blue.png'
-import fullScreenImg from 'myAssets/images/screen-full-32px-blue.png'
-import menuImg from 'myAssets/images/th-menu-48px-blue.png'
-import smallLogo from 'myAssets/images/Logo-small-x35.png'
-import viewImg from 'myAssets/images/eye-outline-48x-blue.png'
 import './Article.css'
 
 class Article extends Component {
@@ -55,24 +55,14 @@ class Article extends Component {
 
     return (
       <div className='tng-Article'>
-
         { /* Sticky Bar */ }
-        <div className={sc('tng-Article-stickyBar', menuOpen && 'is-shifted')}>
-          <img className='tng-Article-smallLogo' src={smallLogo} alt='' />
-          <div className='tng-Article-stickyBtns'>
-            { fscreen.fullscreenEnabled &&
-              <button className='tng-Article-stickyBtn' onClick={this.requestFullscreen}>
-                <img alt='' className='tng-Article-fullScreenImg' src={fullScreenImg} />
-              </button>
-            }
-            <button className='tng-Article-stickyBtn' onClick={this.toggleSelector}>
-              <img alt='' className='tng-Article-viewImg' src={viewImg} />
-            </button>
-            <button className='tng-Article-stickyBtn' onClick={this.toggleMenu}>
-              <img alt='' className='tng-Article-menuImg' src={menuImg} />
-            </button>
-          </div>
-        </div>
+        <StickyBar.Main className={sc('tng-Article-stickyBar', menuOpen && 'is-shifted')}>
+          { fscreen.fullscreenEnabled &&
+            <StickyBar.Button img='fullScreen' onClick={this.requestFullscreen} alt='full screen' />
+          }
+          <StickyBar.Button img='eye' onClick={this.toggleSelector} alt='toggle view mode' />
+          <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
+        </StickyBar.Main>
 
         { /* Menu */ }
         <div className={sc('tng-Article-menu', menuOpen && 'is-visible')}>

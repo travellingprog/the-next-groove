@@ -1,0 +1,43 @@
+.tng-StickyBar {
+  background-color: hsla(75, 13%, 94%, 0.95);
+  bottom: 0;
+  box-shadow: 0 -1px 10px hsla(0, 0%, 0%, 11%);
+  height: 45px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 10;
+}
+
+.tng-StickyBar-smallLogo {
+  height: 30px;
+  margin: 7px 0 0 10px;
+  width: auto;
+}
+
+.tng-StickyBar-stickyBtns {
+  float: right;
+}
+
+.tng-StickyBar-btn {
+  border-left: 1px solid hsl(193, 66%, 33%);
+  height: 45px;
+  width: 64px;
+}
+
+.tng-StickyBar-img {
+  height: auto;
+  vertical-align: middle;
+}
+
+.tng-StickyBar-img--eye {
+  width: 32px;
+}
+
+.tng-StickyBar-img--fullScreen {
+  width: 28px;
+}
+
+.tng-StickyBar-img--menu {
+  width: 24px;
+}
