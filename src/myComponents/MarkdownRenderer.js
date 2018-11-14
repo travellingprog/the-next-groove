@@ -23,7 +23,12 @@ const MarkdownRenderer = ({ md, musicOnly = false }) => {
               showTitle: musicOnly
             }
           },
-          SpecialText
+          SpecialText,
+          img: {
+            props: {
+              className: 'tng-MarkdownRenderer-img'
+            }
+          }
         }
       }}
     />
