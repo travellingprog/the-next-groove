@@ -6,10 +6,10 @@ import fscreen from 'fscreen'
 
 import ArticleContent from './article/ArticleContent'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
+import Menu, { getMenuAnimClass } from 'myComponents/Menu'
 import * as StickyBar from 'myComponents/StickyBar'
 import sc from 'myUtils/suitClass'
 
-import closeBtnImg from 'myAssets/images/times-outline-48px-blue.png'
 import './Article.css'
 
 class Article extends Component {
@@ -52,11 +52,12 @@ class Article extends Component {
     }
 
     const { menuOpen, musicOnly, selectorOpen } = this.state
+    const menuAnimClass = getMenuAnimClass(menuOpen)
 
     return (
       <div className='tng-Article'>
         { /* Sticky Bar */ }
-        <StickyBar.Main className={sc('tng-Article-stickyBar', menuOpen && 'is-shifted')}>
+        <StickyBar.Main className={`tng-Article-stickyBar ${menuAnimClass}`}>
           { fscreen.fullscreenEnabled &&
             <StickyBar.Button img='fullScreen' onClick={this.requestFullscreen} alt='full screen' />
           }
@@ -65,41 +66,16 @@ class Article extends Component {
         </StickyBar.Main>
 
         { /* Menu */ }
-        <div className={sc('tng-Article-menu', menuOpen && 'is-visible')}>
-          <nav className='tng-Article-nav'>
-            <ul className='tng-Article-navList'>
-              <li>
-                <a className='tng-Article-navItem tng-Article-navItem--seperate' href='#'>Home</a>
-              </li>
-              <li><a className='tng-Article-navItem' href='#'>Musings</a></li>
-              <li><a className='tng-Article-navItem' href='#'>Showcase Mixes</a></li>
-              <li>
-                <a className='tng-Article-navItem tng-Article-navItem--seperate' href='#'>
-                  Playlists
-                </a>
-              </li>
-              <li><a className='tng-Article-navItem' href='#'>About</a></li>
-            </ul>
-          </nav>
-          <button className='tng-Article-closeMenuBtn' onClick={this.toggleMenu}>
-            <img alt='' className='tng-Article-closeBtnImg' src={closeBtnImg} />
-          </button>
-        </div>
+        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* "Music Only" Indicator */ }
-        <div
-          className={sc(
-            'tng-Article-indicator', musicOnly && 'is-visible', menuOpen && 'is-shifted'
-          )}
-        >
+        <div className={sc('tng-Article-indicator', musicOnly && 'is-visible', menuAnimClass)}>
           music only
         </div>
 
         { /* Article Content */ }
         <div
-          className={sc(
-            'tng-Article-content', menuOpen && ' is-shifted', musicOnly && 'is-musicOnly'
-          )}
+          className={sc('tng-Article-content', musicOnly && 'is-musicOnly', menuAnimClass)}
           ref={this.contentRef}>
           <CMSItemLoader
             itemPath={`articles/${articlePath}.json`}
