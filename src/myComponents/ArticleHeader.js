@@ -59,10 +59,12 @@ class ArticleHeader extends Component {
           </div>
         </OptionalLinkWrapper>
         <div className='tng-ArticleHeader-titleBox'>
-          <OptionalLinkWrapper link={link}>
-            <div className='tng-ArticleHeader-title'>{title}</div>
-            { children }
-          </OptionalLinkWrapper>
+          <div>
+            <OptionalLinkWrapper link={link}>
+              <span className='tng-ArticleHeader-title'>{title}</span>
+            </OptionalLinkWrapper>
+          </div>
+          { children }
         </div>
       </div>
     )

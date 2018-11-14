@@ -14,6 +14,10 @@
   width: 300px;
 }
 
+.tng-Home-latestArticles {
+  margin-bottom: 30px;
+}
+
 .tng-Home-item + .tng-Home-item {
   margin-top: 10px;
 }
@@ -27,4 +31,12 @@
   font-size: 12px;
   font-weight: bold;
   margin-left: 8px;
+}
+
+.tng-Home-articleSummary {
+  line-height: 1.4;
+  padding: 5px 15px 0;
+  position: relative;
+  top: -30px;
+  word-spacing: 0.1em;
 }
