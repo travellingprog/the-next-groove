@@ -5,3 +5,7 @@
 .tng-MarkdownRenderer.is-showingMusicOnly > .tng-MarkdownRenderer-music {
   display: block;
 }
+
+.tng-MarkdownRenderer-img {
+  max-width: 100%;
+}
