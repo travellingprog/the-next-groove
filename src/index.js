@@ -14,6 +14,11 @@ const Article = Loadable({
   loading: Loading
 })
 
+const Category = Loadable({
+  loader: () => import('myPages/Category'),
+  loading: Loading
+})
+
 const Home = Loadable({
   loader: () => import('myPages/Home'),
   loading: Loading
@@ -30,6 +35,8 @@ const App = () => (
       <Route exact path='/' component={Home} />
       <Route path='/admin' component={Admin} />
       <Route path='/article/:articlePath' component={Article} />
+      <Route path='/category/:category' component={Category} />
+      <Route path='/category/:category/:pageNum' component={Category} />
       <Route path='/no-content' component={NoContent} />
       <Route path='/page/:pageNum' component={Home} />
       <Route component={NoContent} />

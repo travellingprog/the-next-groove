@@ -13,10 +13,10 @@ const Menu = ({ open, toggleMenu }) => (
         <li>
           <a className='tng-Menu-navItem tng-Menu-navItem--seperate' href='/'>Home</a>
         </li>
-        <li><a className='tng-Menu-navItem' href='#'>Musings</a></li>
-        <li><a className='tng-Menu-navItem' href='#'>Showcase Mixes</a></li>
+        <li><a className='tng-Menu-navItem' href='/category/musings'>Musings</a></li>
+        <li><a className='tng-Menu-navItem' href='/category/mixes'>Showcase Mixes</a></li>
         <li>
-          <a className='tng-Menu-navItem tng-Menu-navItem--seperate' href='#'>
+          <a className='tng-Menu-navItem tng-Menu-navItem--seperate' href='/category/playlists'>
             Playlists
           </a>
         </li>
