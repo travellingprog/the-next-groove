@@ -21,6 +21,7 @@ class Home extends Component {
   }
 
   render () {
+    const pageNum = this.props.match.params.pageNum || '1'
     const { menuOpen } = this.state
     const menuAnimClass = getMenuAnimClass(menuOpen)
 
@@ -39,12 +40,12 @@ class Home extends Component {
           <img alt='The Next Groove' className='tng-Home-logo' src={logoImg} />
         </div>
 
-        {/* Latest Articles */}
+        {/* Page Articles */}
         <CMSItemLoader
-          itemPath={`generated/homePage.json`}
-          renderOnData={data =>
-            <div className={`tng-Home-latestArticles ${menuAnimClass}`}>
-              {data.latestArticles.map((article, idx) =>
+          itemPath={`generated/home/${pageNum}.json`}
+          renderOnData={({ pageArticles, links }) =>
+            <div className={`tng-Home-pageArticles ${menuAnimClass}`}>
+              {pageArticles.map((article, idx) =>
                 <div className='tng-Home-item' key={idx}>
                   <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
                     <div>
@@ -55,6 +56,16 @@ class Home extends Component {
                   <div className='tng-Home-articleSummary'>{article.summary}</div>
                 </div>
               )}
+              <div className='tng-Home-links'>
+                {links.previousPage
+                  ? <a className='tng-Home-pageLink' href={links.previousPage}>Previous Page</a>
+                  : <div />
+                }
+                {links.nextPage
+                  ? <a className='tng-Home-pageLink' href={links.nextPage}>Next Page</a>
+                  : <div />
+                }
+              </div>
             </div>
           }
         />

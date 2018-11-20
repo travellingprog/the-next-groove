@@ -31,6 +31,7 @@ const App = () => (
       <Route path='/admin' component={Admin} />
       <Route path='/article/:articlePath' component={Article} />
       <Route path='/no-content' component={NoContent} />
+      <Route path='/page/:pageNum' component={Home} />
       <Route component={NoContent} />
     </Switch>
   </BrowserRouter>

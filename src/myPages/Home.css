@@ -1,5 +1,6 @@
 .tng-Home {
   background-color: hsl(0, 0%, 98%);
+  min-height: 100vh;
 }
 
 .tng-Home-logoContainer {
@@ -14,12 +15,12 @@
   width: 300px;
 }
 
-.tng-Home-latestArticles {
-  margin-bottom: 30px;
+.tng-Home-pageArticles {
+  margin-bottom: 60px;
 }
 
 .tng-Home-item + .tng-Home-item {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .tng-Home-category {
@@ -36,7 +37,19 @@
 .tng-Home-articleSummary {
   line-height: 1.4;
   padding: 5px 15px 0;
-  position: relative;
-  top: -30px;
   word-spacing: 0.1em;
+}
+
+.tng-Home-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+}
+
+.tng-Home-pageLink {
+  color: hsl(138, 82%, 28%);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  text-decoration: none;
 }

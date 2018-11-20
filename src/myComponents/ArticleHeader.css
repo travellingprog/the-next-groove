@@ -1,3 +1,8 @@
+.tng-ArticleHeader {
+  /* this is to compensate for the titleBox shift */
+  margin-bottom: -30px;
+}
+
 .tng-ArticleHeader-imgContainer {
   height: 66.66vw;
   position: relative;
