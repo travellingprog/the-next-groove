@@ -1,4 +1,4 @@
-/** The home page of our site */
+/** A category page for our site */
 import React, { Component } from 'react'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
@@ -6,12 +6,12 @@ import CMSItemLoader from 'myComponents/CMSItemLoader'
 import Menu, { getMenuAnimClass } from 'myComponents/Menu'
 import PageLinks from 'myComponents/PageLinks'
 import * as StickyBar from 'myComponents/StickyBar'
-import { categoryTexts } from 'myUtils/constants'
+import { categoryTextsPlural } from 'myUtils/constants'
 
 import logoImg from 'myAssets/images/Logo-x45.png'
-import './Home.css'
+import './Category.css'
 
-class Home extends Component {
+class Category extends Component {
   state = {
     menuOpen: false
   }
@@ -22,12 +22,13 @@ class Home extends Component {
   }
 
   render () {
+    const { category } = this.props.match.params
     const pageNum = this.props.match.params.pageNum || '1'
     const { menuOpen } = this.state
     const menuAnimClass = getMenuAnimClass(menuOpen)
 
     return (
-      <div className='tng-Home'>
+      <div className='tng-Category'>
         { /* Sticky Bar */ }
         <StickyBar.Main className={menuAnimClass}>
           <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
@@ -37,28 +38,28 @@ class Home extends Component {
         <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
-        <div className={`tng-Home-logoContainer ${menuAnimClass}`}>
-          <img alt='The Next Groove' className='tng-Home-logo' src={logoImg} />
+        <div className={`tng-Category-logoContainer ${menuAnimClass}`}>
+          <img alt='The Next Groove' className='tng-Category-logo' src={logoImg} />
+        </div>
+
+        { /* Category Title */ }
+        <div className={`tng-Category-title  ${menuAnimClass}`}>
+          {categoryTextsPlural[category.toUpperCase()]}
         </div>
 
         {/* Page Articles */}
         <CMSItemLoader
-          itemPath={`generated/home/${pageNum}.json`}
+          itemPath={`generated/category/${category}/${pageNum}.json`}
           renderOnData={({ pageArticles, links }) =>
-            <div className={`tng-Home-pageArticles ${menuAnimClass}`}>
+            <div className={`tng-Category-pageArticles ${menuAnimClass}`}>
               {pageArticles.map((article, idx) =>
-                <div className='tng-Home-item' key={idx}>
+                <div className='tng-Category-item' key={idx}>
                   <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
                     <div>
-                      <a
-                        className='tng-Home-category'
-                        href={`/category/${article.category.toLowerCase()}`}>
-                        {categoryTexts[article.category]}
-                      </a>
-                      <span className='tng-Home-date'>/ {article.publicationDate}</span>
+                      <span className='tng-Category-date'>{article.publicationDate}</span>
                     </div>
                   </ArticleHeader>
-                  <div className='tng-Home-articleSummary'>{article.summary}</div>
+                  <div className='tng-Category-articleSummary'>{article.summary}</div>
                 </div>
               )}
               <PageLinks links={links} />
@@ -70,4 +71,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default Category

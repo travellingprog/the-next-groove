@@ -11,7 +11,9 @@
 }
 
 .tng-ArticleContent-category {
+  color: hsl(138, 82%, 28%);
   line-height: 1.5;
+  text-decoration: none;
 }
 
 .tng-ArticleContent-publishDate {

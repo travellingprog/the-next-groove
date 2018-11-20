@@ -16,7 +16,11 @@ const ArticleContent = ({ data, musicOnly }) => {
         <img alt='The Next Groove' className='tng-ArticleContent-logo' src={logoImg} />
       </div>
       <ArticleHeader image={mainImage} title={title}>
-        <div className='tng-ArticleContent-category'>{categoryTexts[category]}</div>
+        <div>
+          <a className='tng-ArticleContent-category' href={`/category/${category.toLowerCase()}`}>
+            {categoryTexts[category]}
+          </a>
+        </div>
         <div className='tng-ArticleContent-publishDate'>published on {publicationDate}</div>
       </ArticleHeader>
       <div className='tng-ArticleContent-text'>

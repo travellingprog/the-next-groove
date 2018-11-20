@@ -1,0 +1,39 @@
+.tng-Category-logoContainer {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.tng-Category-logo {
+  height: auto;
+  vertical-align: middle;
+  width: 250px;
+}
+
+.tng-Category-title {
+  color: hsl(138, 82%, 28%);
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin: 0px 0 20px;
+  text-align: center;
+}
+
+.tng-Category-pageArticles {
+  margin-bottom: 60px;
+}
+
+.tng-Category-item + .tng-Category-item {
+  margin-top: 40px;
+}
+
+.tng-Category-date {
+  color: hsl(193, 66%, 33%);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tng-Category-articleSummary {
+  line-height: 1.4;
+  padding: 5px 15px 0;
+  word-spacing: 0.1em;
+}
