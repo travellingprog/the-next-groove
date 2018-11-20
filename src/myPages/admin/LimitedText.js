@@ -13,7 +13,7 @@ const LimitedText = (limitNum) => {
   // Otherwise, the NetlifyCMS wrappers will fail.
   return class extends Component {
     render () {
-      const { onChange, value, ...otherProps } = this.props
+      const { onChange, value = '', ...otherProps } = this.props
       const alteredValue = value.slice(0, limitNum)
 
       return (

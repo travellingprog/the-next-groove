@@ -14,18 +14,11 @@ async function prepareGeneratedContent () {
   try {
     const jsonPaths = getJsonPaths(process.env.NODE_ENV)
 
-    const articlePaths = await glob(`${jsonPaths.articleFolder}/**.json`)
-    let articles = []
-    for (let articlePath of articlePaths) {
-      articles.push({
-        ...(await fse.readJson(articlePath)),
-        urlPath: getArticleUrl(articlePath)
-      })
-    }
+    const articles = await getArticles(jsonPaths.articleFolder)
 
-    await prepareHomePage(articles, jsonPaths.homePage)
+    await prepareHomePages(articles, jsonPaths.homeFolder)
     for (let category of ['MIXES', 'MUSINGS', 'PLAYLISTS']) {
-      await prepareCategoryPage(category, articles, `${jsonPaths.categoryPrefix}-${category}.json`)
+      await prepareCategoryPages(category, articles, jsonPaths.categoryFolder)
     }
   } catch (err) {
     console.error('FAILED prepareGeneratedContent', err)
@@ -43,37 +36,74 @@ function getJsonPaths (NODE_ENV) {
 
   return {
     articleFolder: `${basePath}/articles`,
-    categoryPrefix: `${basePath}/generated/category`,
-    homePage: `${basePath}/generated/homePage.json`
+    categoryFolder: `${basePath}/generated/category`,
+    homeFolder: `${basePath}/generated/home`
   }
 }
 
-/** Get the path segment of the URL for an article, based on its JSON filename */
-function getArticleUrl (articlePath) {
-  const { name } = path.parse(articlePath)
-  return `/article/${name}`
+/**
+ * Return an array with the contents of all articles + the url for each article,
+ * sorted from most recent to oldest
+ */
+async function getArticles (articleFolder) {
+  const articlePaths = await glob(`${articleFolder}/**.json`)
+
+  let articles = []
+  for (let articlePath of articlePaths) {
+    articles.push({
+      ...(await fse.readJson(articlePath)),
+      urlPath: `/article/${path.parse(articlePath).name}`
+    })
+  }
+
+  articles = articles.sort((a, b) => {
+    return dateParse(b.publicationDate).getTime() - dateParse(a.publicationDate).getTime()
+  })
+
+  return articles
 }
 
-/** Prepare the content of the home page by getting the latest articles */
-async function prepareHomePage (articles, filePath) {
-  const latestArticles = articles
-    .sort((a, b) => {
-      return dateParse(b.publicationDate).getTime() - dateParse(a.publicationDate).getTime()
-    })
-    .slice(0, 10)
-
-  await fse.outputJson(filePath, { latestArticles })
+/** Prepare the content of the pages that list all the articles, starting at the home page */
+async function prepareHomePages (articles, homeFolder) {
+  await splitArticlesIntoPages({
+    articles,
+    ARTICLES_PER_PAGE: 10,
+    jsonFolder: homeFolder,
+    urlPrefix: '/page/'
+  })
 }
 
 /** Prepare the content of the category pages by getting all articles for that category */
-async function prepareCategoryPage (category, articles, filePath) {
-  const categoryArticles = articles
-    .filter(article => article.category === category)
-    .map(({ publicationDate, title, mainImage, summary }) => (
-      { publicationDate, title, mainImage, summary } // take only summary properties
-    ))
+async function prepareCategoryPages (category, articles, categoryFolder) {
+  const categoryArticles = articles.filter(article => article.category === category)
 
-  await fse.outputJson(filePath, { categoryArticles })
+  await splitArticlesIntoPages({
+    articles: categoryArticles,
+    ARTICLES_PER_PAGE: 10,
+    jsonFolder: `${categoryFolder}/${category.toLowerCase()}`,
+    urlPrefix: `/category/${category.toLowerCase()}`
+  })
+}
+
+/**
+ * Take an array of articles, and split the contents across multiple JSON files,
+ * each representing a different file. Also, set metadata for links between the pages.
+ */
+async function splitArticlesIntoPages ({ articles, ARTICLES_PER_PAGE, jsonFolder, urlPrefix }) {
+  const numPages = Math.ceil(articles.length / ARTICLES_PER_PAGE)
+
+  for (let i = 1; i <= numPages; i++) {
+    const startIndex = Math.round(ARTICLES_PER_PAGE * (i - 1))
+    const pageArticles = articles.slice(startIndex, startIndex + ARTICLES_PER_PAGE)
+
+    const links = {
+      previousPage: (i > 1) ? `${urlPrefix}${i - 1}` : null,
+      nextPage: (i < numPages) ? `${urlPrefix}${i + 1}` : null
+    }
+
+    const filePath = `${jsonFolder}/${i}.json`
+    await fse.outputJson(filePath, { pageArticles, links })
+  }
 }
 
 module.exports = prepareGeneratedContent
