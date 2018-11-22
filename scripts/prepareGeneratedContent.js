@@ -20,6 +20,8 @@ async function prepareGeneratedContent () {
     for (let category of ['MIXES', 'MUSINGS', 'PLAYLISTS']) {
       await prepareCategoryPages(category, articles, jsonPaths.categoryFolder)
     }
+
+    await prepareArticleRelatedData(articles, jsonPaths.articleRelatedFolder)
   } catch (err) {
     console.error('FAILED prepareGeneratedContent', err)
   }
@@ -36,6 +38,7 @@ function getJsonPaths (NODE_ENV) {
 
   return {
     articleFolder: `${basePath}/articles`,
+    articleRelatedFolder: `${basePath}/generated/articleRelated`,
     categoryFolder: `${basePath}/generated/category`,
     homeFolder: `${basePath}/generated/home`
   }
@@ -50,9 +53,12 @@ async function getArticles (articleFolder) {
 
   let articles = []
   for (let articlePath of articlePaths) {
+    const name = path.parse(articlePath).name
+
     articles.push({
       ...(await fse.readJson(articlePath)),
-      urlPath: `/article/${path.parse(articlePath).name}`
+      name,
+      urlPath: `/article/${name}`
     })
   }
 
@@ -103,6 +109,25 @@ async function splitArticlesIntoPages ({ articles, ARTICLES_PER_PAGE, jsonFolder
 
     const filePath = `${jsonFolder}/${i}.json`
     await fse.outputJson(filePath, { pageArticles, links })
+  }
+}
+
+/**
+ * For each article, save a data file about with content related to that article.
+ * This is where we indicate which article is next (if any), and which one precedes it (if any).
+ */
+async function prepareArticleRelatedData (articles, jsonFolder) {
+  for (let i = 0; i < articles.length; i++) {
+    const previousArticle = (i > 0)
+      ? { title: articles[i - 1].title, urlPath: articles[i - 1].urlPath }
+      : null
+
+    const nextArticle = (i + 1 < articles.length)
+      ? { title: articles[i + 1].title, urlPath: articles[i + 1].urlPath }
+      : null
+
+    const filePath = `${jsonFolder}/${articles[i].name}.json`
+    await fse.outputJson(filePath, { previousArticle, nextArticle })
   }
 }
 
