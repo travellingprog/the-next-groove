@@ -1,3 +1,7 @@
+/**
+ * This is a component that renders a iframe, that should have music, within our Markdown content.
+ * It will have a title and track number that will only show up with Music Only mode active.
+ */
 import React, { Component } from 'react'
 
 import sc from 'myUtils/suitClass'

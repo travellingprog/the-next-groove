@@ -6,6 +6,10 @@
   display: block;
 }
 
+.tng-MarkdownRenderer-music + .tng-MarkdownRenderer-music {
+  margin-top: 16px;
+}
+
 .tng-MarkdownRenderer-img {
   max-width: 100%;
 }

@@ -16,4 +16,3 @@ const PageLinks = ({ links }) => (
 )
 
 export default PageLinks
-
