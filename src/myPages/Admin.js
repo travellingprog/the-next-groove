@@ -21,12 +21,17 @@ class Admin extends Component {
     CMS.registerWidget('text160Limit', LimitedText(160))
 
     CMS.registerPreviewTemplate('articles', ({ entry, getAsset }) => {
-      const previewData = entry.toJS().data
-      previewData.mainImage = previewData.mainImage && getAsset(previewData.mainImage).toString()
+      const article = entry.toJS().data
+      article.mainImage = article.mainImage && getAsset(article.mainImage).toString()
+
+      const articleRelated = {
+        nextArticle: { title: 'A History Of Drum Machines', urlPath: '/no-content' },
+        previousArticle: { title: 'A Map Of Electronic Scenes', urlPath: '/no-content' }
+      }
 
       return (
         <PreviewContainer>
-          <Article previewData={previewData} />
+          <Article previewData={{ article, articleRelated }} />
         </PreviewContainer>
       )
     })

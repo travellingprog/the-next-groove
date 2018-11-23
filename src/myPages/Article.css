@@ -1,3 +1,7 @@
+.tng-Article {
+  margin-bottom: 70px;
+}
+
 /* Music-Only Indicator */
 
 .tng-Article-indicator {
@@ -28,6 +32,12 @@
 
 .tng-Article-content.is-musicOnly {
   padding-top: 22px;
+}
+
+/* Links To Other Articles */
+
+.tng-Article-linksToArticles {
+  margin: 20px 0;
 }
 
 /* View Selector */

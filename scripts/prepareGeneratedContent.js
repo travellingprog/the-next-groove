@@ -38,7 +38,7 @@ function getJsonPaths (NODE_ENV) {
 
   return {
     articleFolder: `${basePath}/articles`,
-    articleRelatedFolder: `${basePath}/generated/articleRelated`,
+    articleRelatedFolder: `${basePath}/generated/article-related`,
     categoryFolder: `${basePath}/generated/category`,
     homeFolder: `${basePath}/generated/home`
   }
@@ -118,16 +118,16 @@ async function splitArticlesIntoPages ({ articles, ARTICLES_PER_PAGE, jsonFolder
  */
 async function prepareArticleRelatedData (articles, jsonFolder) {
   for (let i = 0; i < articles.length; i++) {
-    const previousArticle = (i > 0)
+    const nextArticle = (i > 0)
       ? { title: articles[i - 1].title, urlPath: articles[i - 1].urlPath }
       : null
 
-    const nextArticle = (i + 1 < articles.length)
+    const previousArticle = (i + 1 < articles.length)
       ? { title: articles[i + 1].title, urlPath: articles[i + 1].urlPath }
       : null
 
     const filePath = `${jsonFolder}/${articles[i].name}.json`
-    await fse.outputJson(filePath, { previousArticle, nextArticle })
+    await fse.outputJson(filePath, { nextArticle, previousArticle })
   }
 }
 

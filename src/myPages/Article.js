@@ -6,6 +6,7 @@ import fscreen from 'fscreen'
 
 import ArticleContent from './article/ArticleContent'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
+import LinkToArticles from './article/LinkToArticles'
 import Menu, { getMenuAnimClass } from 'myComponents/Menu'
 import * as StickyBar from 'myComponents/StickyBar'
 import sc from 'myUtils/suitClass'
@@ -79,9 +80,20 @@ class Article extends Component {
           ref={this.contentRef}>
           <CMSItemLoader
             itemPath={`articles/${articlePath}.json`}
-            previewData={previewData}
+            previewData={previewData && previewData.article}
             renderOnData={data =>
               <ArticleContent data={data} musicOnly={musicOnly} />
+            }
+          />
+        </div>
+
+        { /* Links To Other Articles */ }
+        <div className={`tng-Article-linksToArticles ${menuAnimClass}`}>
+          <CMSItemLoader
+            itemPath={`generated/article-related/${articlePath}.json`}
+            previewData={previewData && previewData.articleRelated}
+            renderOnData={data =>
+              <LinkToArticles data={data} />
             }
           />
         </div>
