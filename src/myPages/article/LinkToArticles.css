@@ -1,0 +1,19 @@
+.tng-LinkToArticles {
+  color: hsl(193, 66%, 33%);
+  margin: 0 15px;
+}
+
+.tng-LinkToArticles-section + .tng-LinkToArticles-section {
+  margin-top: 20px;
+}
+
+.tng-LinkToArticles-label {
+  font-size: 0.875em;
+  letter-spacing: 2px;
+}
+
+.tng-LinkToArticles-link {
+  color: hsl(138, 82%, 28%);
+  font-size: 1.25em;
+  text-decoration: none;
+}
