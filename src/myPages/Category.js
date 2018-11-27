@@ -1,5 +1,6 @@
 /** A category page for our site */
 import React, { Component } from 'react'
+import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
@@ -26,9 +27,17 @@ class Category extends Component {
     const pageNum = this.props.match.params.pageNum || '1'
     const { menuOpen } = this.state
     const menuAnimClass = getMenuAnimClass(menuOpen)
+    const categoryTitle = categoryTextsPlural[category.toUpperCase()]
 
     return (
       <div className='tng-Category'>
+        { /* Tab Title */ }
+        <Titled
+          title={title =>
+            (pageNum !== '1' ? `${pageNum} | ` : '') + `${categoryTitle} | ${title}`
+          }
+        />
+
         { /* Sticky Bar */ }
         <StickyBar.Main className={menuAnimClass}>
           <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
@@ -44,7 +53,7 @@ class Category extends Component {
 
         { /* Category Title */ }
         <div className={`tng-Category-title  ${menuAnimClass}`}>
-          {categoryTextsPlural[category.toUpperCase()]}
+          {categoryTitle}
         </div>
 
         {/* Page Articles */}

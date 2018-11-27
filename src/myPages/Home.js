@@ -1,5 +1,6 @@
 /** The home page of our site */
 import React, { Component } from 'react'
+import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
@@ -28,6 +29,11 @@ class Home extends Component {
 
     return (
       <div className='tng-Home'>
+        { /* Tab Title */ }
+        {pageNum !== '1' &&
+          <Titled title={title => `page ${pageNum} | ${title}`} />
+        }
+
         { /* Sticky Bar */ }
         <StickyBar.Main className={menuAnimClass}>
           <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
