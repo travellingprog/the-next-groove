@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Titled } from 'react-titled'
 import './admin/setup'
 import CMS, { init } from 'netlify-cms'
 
@@ -39,7 +40,9 @@ class Admin extends Component {
 
   render () {
     return (
-      <div id='nc-root' />
+      <Titled title={title => `Admin | ${title}`}>
+        <div id='nc-root' />
+      </Titled>
     )
   }
 }

@@ -9121,6 +9121,11 @@ react-is@16.3.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.3.1.tgz#ee66e6d8283224a83b3030e110056798488359ba"
   integrity sha512-3XpazGqS5DEOLiuR6JQ2Sg6URq/33d1BHJVaUvtMz579KRhd2D0pqabNEe5czv785yzKBPZimOf0UNIXa3jw1A==
 
+react-is@^16.6.3:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
+  integrity sha512-u7FDWtthB4rWibG/+mFbVd5FvdI20yde86qKGx4lVUTWmPlSWQ4QxbBIrrs+HnXGbxOUlUzTAP/VDmvCwaP2yA==
+
 react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -9295,6 +9300,16 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
+react-test-renderer@^16.3.1:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.6.3.tgz#5f3a1a7d5c3379d46f7052b848b4b72e47c89f38"
+  integrity sha512-B5bCer+qymrQz/wN03lT0LppbZUDRq6AMfzMKrovzkGzfO81a9T+PWQW6MzkWknbwODQH/qpJno/yFQLX5IWrQ==
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    react-is "^16.6.3"
+    scheduler "^0.11.2"
+
 react-textarea-autosize@^5.2.0:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.2.1.tgz#2b78f9067180f41b08ac59f78f1581abadd61e54"
@@ -9308,6 +9323,14 @@ react-themeable@^1.1.0:
   integrity sha1-fURm3ZsrX6dQWHJ4JenxUro3mg4=
   dependencies:
     object-assign "^3.0.0"
+
+react-titled@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-titled/-/react-titled-1.0.0.tgz#8f332dfef065ad86aa569523ad2a7540cc7aab2f"
+  integrity sha512-jojuUkhu+RRSZM5Y3zVFLOBLue4pNyNGV0XKYUTWrXrHr1HavsloErefQTbguU1QSOs0Rl2rk4AJ3bGttQpO1A==
+  dependencies:
+    prop-types "^15.5.8"
+    react-test-renderer "^16.3.1"
 
 react-toggled@^1.1.2:
   version "1.2.7"
