@@ -1,0 +1,10 @@
+.tng-WideLogo {
+  text-align: center;
+}
+
+.tng-WideLogo-img {
+  height: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

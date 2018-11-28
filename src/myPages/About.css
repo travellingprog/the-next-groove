@@ -1,0 +1,18 @@
+.tng-About-title {
+  color: hsl(193, 66%, 33%);
+  font-size: 2em;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tng-About-mainImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+}
+
+.tng-About-text {
+  margin: 20px 20px 60px 20px;
+}

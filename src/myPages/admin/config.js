@@ -61,6 +61,32 @@ export default {
           widget: 'markdown'
         }
       ]
+    },
+    {
+      name: 'pages',
+      label: 'Page',
+      description: 'The unique pages',
+      delete: false,
+      format: 'json',
+      files: [
+        {
+          name: 'about',
+          label: 'About Page',
+          file: `public/${saveFolder}/pages/about.json`,
+          fields: [
+            {
+              name: 'mainImage',
+              label: 'Main Image',
+              widget: 'image'
+            },
+            {
+              name: 'body',
+              label: 'Body',
+              widget: 'markdown'
+            }
+          ]
+        }
+      ]
     }
   ]
 }

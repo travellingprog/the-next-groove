@@ -7,9 +7,9 @@ import CMSItemLoader from 'myComponents/CMSItemLoader'
 import Menu, { getMenuAnimClass } from 'myComponents/Menu'
 import PageLinks from 'myComponents/PageLinks'
 import * as StickyBar from 'myComponents/StickyBar'
+import WideLogo from 'myComponents/WideLogo'
 import { categoryTextsPlural } from 'myUtils/constants'
 
-import logoImg from 'myAssets/images/Logo-x45.png'
 import './Category.css'
 
 class Category extends Component {
@@ -47,9 +47,7 @@ class Category extends Component {
         <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
-        <div className={`tng-Category-logoContainer ${menuAnimClass}`}>
-          <img alt='The Next Groove' className='tng-Category-logo' src={logoImg} />
-        </div>
+        <WideLogo className={menuAnimClass} containerHeight='60px' logoWidth='250px' />
 
         { /* Category Title */ }
         <div className={`tng-Category-title  ${menuAnimClass}`}>

@@ -1,15 +1,3 @@
-.tng-Category-logoContainer {
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-}
-
-.tng-Category-logo {
-  height: auto;
-  vertical-align: middle;
-  width: 250px;
-}
-
 .tng-Category-title {
   color: hsl(138, 82%, 28%);
   font-size: 32px;
