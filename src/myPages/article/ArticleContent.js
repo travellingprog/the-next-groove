@@ -4,7 +4,7 @@ import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import MarkdownRenderer from 'myComponents/MarkdownRenderer'
-import logoImg from 'myAssets/images/Logo-x45.png'
+import WideLogo from 'myComponents/WideLogo'
 import { categoryTexts } from 'myUtils/constants'
 import './ArticleContent.css'
 
@@ -14,9 +14,9 @@ const ArticleContent = ({ data, musicOnly }) => {
   return (
     <div>
       <Titled title={tabTitle => `${title} | ${tabTitle}`} />
-      <div className='tng-ArticleContent-logoContainer'>
-        <img alt='The Next Groove' className='tng-ArticleContent-logo' src={logoImg} />
-      </div>
+
+      <WideLogo containerHeight='55px' logoWidth='280px' />
+
       <ArticleHeader image={mainImage} title={title}>
         <div>
           {category &&
@@ -27,6 +27,7 @@ const ArticleContent = ({ data, musicOnly }) => {
         </div>
         <div className='tng-ArticleContent-publishDate'>published on {publicationDate}</div>
       </ArticleHeader>
+
       <div className='tng-ArticleContent-text'>
         <MarkdownRenderer md={body || ''} musicOnly={musicOnly} />
       </div>

@@ -1,15 +1,3 @@
-.tng-ArticleContent-logoContainer {
-  height: 55px;
-  line-height: 55px;
-  text-align: center;
-}
-
-.tng-ArticleContent-logo {
-  height: auto;
-  vertical-align: middle;
-  width: 280px;
-}
-
 .tng-ArticleContent-category {
   color: hsl(138, 82%, 28%);
   line-height: 1.5;

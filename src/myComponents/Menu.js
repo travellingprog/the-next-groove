@@ -20,7 +20,7 @@ const Menu = ({ open, toggleMenu }) => (
             Playlists
           </a>
         </li>
-        <li><a className='tng-Menu-navItem' href='#'>About</a></li>
+        <li><a className='tng-Menu-navItem' href='/about'>About</a></li>
       </ul>
     </nav>
     <button className='tng-Menu-closeMenuBtn' onClick={toggleMenu}>

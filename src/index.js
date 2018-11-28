@@ -10,6 +10,16 @@ import NoContent from 'myPages/NoContent'
 
 const Loading = () => <div>Loading...</div>
 
+const About = Loadable({
+  loader: () => import('myPages/About'),
+  loading: Loading
+})
+
+const Admin = Loadable({
+  loader: () => import('myPages/Admin'),
+  loading: Loading
+})
+
 const Article = Loadable({
   loader: () => import('myPages/Article'),
   loading: Loading
@@ -25,16 +35,12 @@ const Home = Loadable({
   loading: Loading
 })
 
-const Admin = Loadable({
-  loader: () => import('myPages/Admin'),
-  loading: Loading
-})
-
 const App = () => (
   <BrowserRouter>
     <Titled title={() => 'The Next Groove'}>
       <Switch>
         <Route exact path='/' component={Home} />
+        <Route path='/about' component={About} />
         <Route path='/admin' component={Admin} />
         <Route path='/article/:articlePath' component={Article} />
         <Route path='/category/:category' component={Category} />

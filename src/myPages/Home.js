@@ -7,6 +7,7 @@ import CMSItemLoader from 'myComponents/CMSItemLoader'
 import Menu, { getMenuAnimClass } from 'myComponents/Menu'
 import PageLinks from 'myComponents/PageLinks'
 import * as StickyBar from 'myComponents/StickyBar'
+import WideLogo from 'myComponents/WideLogo'
 import { categoryTexts } from 'myUtils/constants'
 
 import logoImg from 'myAssets/images/Logo-x45.png'
@@ -43,9 +44,7 @@ class Home extends Component {
         <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
-        <div className={`tng-Home-logoContainer ${menuAnimClass}`}>
-          <img alt='The Next Groove' className='tng-Home-logo' src={logoImg} />
-        </div>
+        <WideLogo className={menuAnimClass} containerHeight='75px' logoWidth='300px' />
 
         {/* Page Articles */}
         <CMSItemLoader
