@@ -1,13 +1,14 @@
+/** Admin loads NetlifyCMS and sets custom widgets and templates for the CMS */
 import React, { Component } from 'react'
 import { Titled } from 'react-titled'
 import './admin/setup'
 import CMS, { init } from 'netlify-cms'
 
-import Article from './Article'
+import AboutPreview from './admin/AboutPreview'
+import ArticlePreview from './admin/ArticlePreview'
 import EditorEmbeddedMusic from './admin/EditorEmbeddedMusic'
 import EditorSpecialText from './admin/EditorSpecialText'
 import LimitedText from './admin/LimitedText'
-import PreviewContainer from './admin/PreviewContainer'
 import config from './admin/config'
 
 CMS.init = init
@@ -21,21 +22,8 @@ class Admin extends Component {
 
     CMS.registerWidget('text160Limit', LimitedText(160))
 
-    CMS.registerPreviewTemplate('articles', ({ entry, getAsset }) => {
-      const article = entry.toJS().data
-      article.mainImage = article.mainImage && getAsset(article.mainImage).toString()
-
-      const articleRelated = {
-        nextArticle: { title: 'A History Of Drum Machines', urlPath: '/no-content' },
-        previousArticle: { title: 'A Map Of Electronic Scenes', urlPath: '/no-content' }
-      }
-
-      return (
-        <PreviewContainer>
-          <Article previewData={{ article, articleRelated }} />
-        </PreviewContainer>
-      )
-    })
+    CMS.registerPreviewTemplate('about', AboutPreview)
+    CMS.registerPreviewTemplate('articles', ArticlePreview)
   }
 
   render () {

@@ -10,7 +10,6 @@ import * as StickyBar from 'myComponents/StickyBar'
 import WideLogo from 'myComponents/WideLogo'
 import { categoryTexts } from 'myUtils/constants'
 
-import logoImg from 'myAssets/images/Logo-x45.png'
 import './Home.css'
 
 class Home extends Component {
