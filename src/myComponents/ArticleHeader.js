@@ -16,20 +16,28 @@ class ArticleHeader extends Component {
 
   componentDidMount () {
     this.setBackgroundImagesShift()
+    window.addEventListener('resize', this.setBackgroundImagesShift);
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.setBackgroundImagesShift);
   }
 
   /**
    * check the dimensions of the image, to figure out how much to shift the adjacent
    * background images, which creates a cool effect
    */
-  setBackgroundImagesShift () {
+  setBackgroundImagesShift = () => {
     const component = this
     const img = new window.Image()
 
     img.onload = function () {
-      // We need to shift our background image by half of the image's width, in vw units.
-      // We can calculate that amount by knowing the image's height is 66.66vw
-      component.setState({ bgShift: (66.66 / this.height) * this.width * 0.5 })
+      // according to our CSS, the image height will be 66.66vw or 520px, whichever is smaller
+      const renderedHeight = Math.min(Math.abs(0.6666 * window.innerWidth), 520)
+
+      // We need to shift our background image by half of the image's rendered width
+      const renderedWidth = this.width * (renderedHeight / this.height)
+      component.setState({ bgShift: renderedWidth * 0.5 })
     }
 
     img.src = this.props.image
@@ -42,8 +50,8 @@ class ArticleHeader extends Component {
     let bgLStyle = { backgroundImage: `url(${image})` }
     let bgRStyle = { ...bgLStyle }
     if (bgShift) {
-      bgLStyle.transform = `translate3d(-${bgShift}vw, 0, 0)`
-      bgRStyle.transform = `translate3d(${bgShift}vw, 0, 0)`
+      bgLStyle.transform = `translate3d(-${bgShift}px, 0, 0)`
+      bgRStyle.transform = `translate3d(${bgShift}px, 0, 0)`
     }
 
     return (

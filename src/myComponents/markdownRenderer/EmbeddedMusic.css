@@ -1,4 +1,6 @@
 .tng-EmbeddedMusic {
+  margin: 0 auto;
+  max-width: 600px;
   z-index: 1;
 }
 
