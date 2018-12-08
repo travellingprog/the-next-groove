@@ -4,15 +4,21 @@
 }
 
 .tng-ArticleHeader-imgContainer {
+  display: flex;
   height: 66.66vw;
-  max-height: 533px;
+  justify-content: center;
+  max-height: 520px;
+  overflow: hidden;
   position: relative;
   text-align: center;
-  overflow: hidden;
 }
 
 .tng-ArticleHeader-image {
+  border-color: white;
+  border-style: solid;
+  border-width: 0 3px;
   height: 66.66vw;
+  max-height: 520px;
   position: relative;
   width: auto;
   z-index: 1;
@@ -23,7 +29,8 @@
   background-size: 100vw auto;
   height: 66.66vw;
   left: 0;
-  opacity: 0.4;
+  max-height: 520px;
+  opacity: 0.8;
   position: absolute;
   top: 0;
   transition: transform 1200ms;
@@ -53,4 +60,24 @@
   font-family: "IBM Plex Serif Web", serif;
   font-size: 1.3125em;
   font-weight: bold;
+}
+
+@media (min-width: 781px) {
+  /* Set the image height to a fixed size */
+  .tng-ArticleHeader-imgContainer,
+  .tng-ArticleHeader-image,
+  .tng-ArticleHeader-imgBackground {
+    height: 520px;
+  }
+
+  /* Set the img background size to a fixed size */
+  .tng-ArticleHeader-imgBackground {
+    background-size: 780px auto;
+    width: 390px;
+  }
+
+  /* Set the left offset to a fixed size */
+  .tng-ArticleHeader-imgBackground--right {
+    left: 390px;
+  }
 }
