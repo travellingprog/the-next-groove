@@ -13,3 +13,15 @@
 .tng-MarkdownRenderer-img {
   max-width: 100%;
 }
+
+@media (min-width: 781px) {
+  /* increase the space between paragraphs */
+  .tng-MarkdownRenderer p {
+    margin: 1.75em 0;
+  }
+
+  /* increase the space between embedded media items */
+  .tng-MarkdownRenderer-music + .tng-MarkdownRenderer-music {
+    margin-top: 1.75em;
+  }
+}

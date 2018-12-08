@@ -4,7 +4,7 @@ import logoImg from 'myAssets/images/Logo-x45.png'
 import './WideLogo.css'
 
 const WideLogo = ({ className, containerHeight, logoWidth }) => (
-  <div className={`tng-WideLogo ${className}`} style={{ height: containerHeight }}>
+  <div className={`tng-WideLogo ${className || ''}`} style={{ height: containerHeight }}>
     <a href='/'>
       <img
         alt='The Next Groove'

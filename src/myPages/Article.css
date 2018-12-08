@@ -27,6 +27,8 @@
 .tng-Article-content {
   background-color: hsl(0, 0%, 98%);
   height: 100%;
+  margin: 0 auto;
+  max-width: 780px;
   overflow-y: auto;
 }
 
@@ -99,4 +101,12 @@
 
 .tng-Article-closeSelectorBtn {
   margin-top: 70px;
+}
+
+@media (min-width: 781px) {
+  /* get the links centered on the page*/
+  .tng-Article-linksToArticles {
+    margin: 20px auto 0;
+    max-width: 780px;
+  }
 }

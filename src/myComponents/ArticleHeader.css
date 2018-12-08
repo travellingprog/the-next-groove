@@ -5,6 +5,7 @@
 
 .tng-ArticleHeader-imgContainer {
   height: 66.66vw;
+  max-height: 533px;
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -39,6 +40,7 @@
   background-color: hsl(0, 0%, 98%);
   border-top: 1px solid hsla(0, 0%, 0%, 10%);
   color: hsl(138, 82%, 28%);
+  max-width: 650px;
   min-height: 30px;
   padding: 10px 15px 0;
   position: relative;
