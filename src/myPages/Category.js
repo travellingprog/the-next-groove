@@ -4,7 +4,7 @@ import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
-import Menu, { getMenuAnimClass } from 'myComponents/Menu'
+import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
 import PageLinks from 'myComponents/PageLinks'
 import * as StickyBar from 'myComponents/StickyBar'
 import WideLogo from 'myComponents/WideLogo'
@@ -44,7 +44,7 @@ class Category extends Component {
         </StickyBar.Main>
 
         { /* Menu */ }
-        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
+        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
         <WideLogo className={menuAnimClass} containerHeight='60px' logoWidth='250px' />

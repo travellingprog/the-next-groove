@@ -7,7 +7,7 @@ import fscreen from 'fscreen'
 import ArticleContent from './article/ArticleContent'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
 import LinkToArticles from './article/LinkToArticles'
-import Menu, { getMenuAnimClass } from 'myComponents/Menu'
+import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
 import * as StickyBar from 'myComponents/StickyBar'
 import sc from 'myUtils/suitClass'
 
@@ -67,7 +67,7 @@ class Article extends Component {
         </StickyBar.Main>
 
         { /* Menu */ }
-        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
+        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* "Music Only" Indicator */ }
         <div className={sc('tng-Article-indicator', musicOnly && 'is-visible', menuAnimClass)}>
