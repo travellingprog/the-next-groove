@@ -1,0 +1,11 @@
+.tng-MenuWrapper {
+  padding-bottom: 45px;
+}
+
+.tng-MenuWrapper-neighbor {
+  transition: transform 250ms;
+}
+
+.tng-MenuWrapper-neighbor.is-shifted {
+  transform: translate3d(calc(63px - 100vw), 0, 0);
+}
