@@ -15,7 +15,7 @@ const ArticleContent = ({ data, musicOnly }) => {
     <div>
       <Titled title={tabTitle => `${title} | ${tabTitle}`} />
 
-      <WideLogo containerHeight='55px' logoWidth='280px' />
+      <WideLogo className='u-mobileOnly' containerHeight='55px' logoWidth='280px' />
 
       <ArticleHeader image={mainImage} title={title}>
         <div>

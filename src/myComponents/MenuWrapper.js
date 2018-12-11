@@ -9,6 +9,7 @@
   */
 import React, { Component } from 'react'
 
+import DesktopNav from './menuWrapper/DesktopNav'
 import MobileNav from './menuWrapper/MobileNav'
 import MobileStickyBar from './menuWrapper/MobileStickyBar'
 import sc from 'myUtils/suitClass'
@@ -40,6 +41,8 @@ class MenuWrapper extends Component {
       <div className='tng-MenuWrapper'>
         <MobileStickyBar actions={mobileActions} className={navSlideClass} />
         <MobileNav open={mobileNavOpen} toggleOpen={this.toggleMobileNav} />
+
+        <DesktopNav actions={actions} />
 
         {render(navSlideClass)}
       </div>

@@ -9,3 +9,9 @@
 .tng-MenuWrapper-neighbor.is-shifted {
   transform: translate3d(calc(63px - 100vw), 0, 0);
 }
+
+@media (min-width: 781px) {
+  .tng-MenuWrapper {
+    padding-top: 80px;
+  }
+}
