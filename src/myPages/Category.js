@@ -4,11 +4,11 @@ import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
-import Menu, { getMenuAnimClass } from 'myComponents/Menu'
+import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
 import PageLinks from 'myComponents/PageLinks'
 import * as StickyBar from 'myComponents/StickyBar'
 import WideLogo from 'myComponents/WideLogo'
-import { categoryTextsPlural } from 'myUtils/constants'
+import { categoryBy } from 'myUtils/constants'
 
 import './Category.css'
 
@@ -23,11 +23,11 @@ class Category extends Component {
   }
 
   render () {
-    const { category } = this.props.match.params
+    const { category: categoryPath } = this.props.match.params
     const pageNum = this.props.match.params.pageNum || '1'
     const { menuOpen } = this.state
     const menuAnimClass = getMenuAnimClass(menuOpen)
-    const categoryTitle = categoryTextsPlural[category.toUpperCase()]
+    const categoryTitle = categoryBy('path', categoryPath).namePlural
 
     return (
       <div className='tng-Category'>
@@ -44,7 +44,7 @@ class Category extends Component {
         </StickyBar.Main>
 
         { /* Menu */ }
-        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
+        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
         <WideLogo className={menuAnimClass} containerHeight='60px' logoWidth='250px' />
@@ -56,7 +56,7 @@ class Category extends Component {
 
         {/* Page Articles */}
         <CMSItemLoader
-          itemPath={`generated/category/${category}/${pageNum}.json`}
+          itemPath={`generated/category/${categoryPath}/${pageNum}.json`}
           renderOnData={({ pageArticles, links }) =>
             <div className={`tng-Category-pageArticles ${menuAnimClass}`}>
               {pageArticles.map((article, idx) =>

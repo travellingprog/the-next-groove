@@ -1,4 +1,4 @@
-import { categoryTexts } from 'myUtils/constants'
+import { categories } from 'myUtils/constants'
 
 const isProd = process.env.NODE_ENV === 'production'
 const saveFolder = isProd ? 'cms-content' : 'cms-dev-content'
@@ -43,10 +43,10 @@ export default {
           name: 'category',
           label: 'Category',
           widget: 'select',
-          options: Object.keys(categoryTexts).map(key => (
+          options: categories.map(category => (
             {
-              value: key,
-              label: categoryTexts[key]
+              value: category.key,
+              label: category.name
             }
           ))
         },

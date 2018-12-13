@@ -1,13 +1,26 @@
-/** A mapping of category keys, to their text label */
-export const categoryTexts = {
-  MUSINGS: 'Musing',
-  MIXES: 'Showcase Mix',
-  PLAYLISTS: 'Playlist'
-}
+/** An array of all site categories */
+export const categories = [
+  {
+    key: 'MUSINGS',
+    name: 'Musing',
+    namePlural: 'Musings',
+    path: 'musings'
+  },
+  {
+    key: 'MIXES',
+    name: 'Showcase Mix',
+    namePlural: 'Showcase Mixes',
+    path: 'mixes'
+  },
+  {
+    key: 'PLAYLISTS',
+    name: 'Playlist',
+    namePlural: 'Playlists',
+    path: 'playlists'
+  }
+]
 
-/** A mapping of category keys, to their plural text label */
-export const categoryTextsPlural = {
-  MUSINGS: 'Musings',
-  MIXES: 'Showcase Mixes',
-  PLAYLISTS: 'Playlists'
+/** A function to return a category object by a certain key */
+export function categoryBy (field, value) {
+  return categories.find(category => category[field] === value)
 }

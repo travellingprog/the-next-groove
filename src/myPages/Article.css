@@ -1,5 +1,5 @@
 .tng-Article {
-  margin-bottom: 70px;
+  margin-bottom: 25px;
 }
 
 /* Music-Only Indicator */
@@ -42,68 +42,13 @@
   margin: 20px 0;
 }
 
-/* View Selector */
-
-.tng-Article-viewSelector {
-  background-color: hsla(0, 0%, 0%, 85%);
-  bottom: 0;
-  color: hsl(0, 0%, 80%);
-  display: flex;
-  flex-direction: column;
-  font-size: 1.625em;
-  justify-content: center;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  top: 0;
-  transform: scale(0.75, 0.75);
-  transition: transform 300ms, opacity 300ms;
-  z-index: 100;
-}
-
-.tng-Article-viewSelector.is-visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1, 1);
-}
-
-.tng-Article-selectorTitle {
-  margin-bottom: 5px;
-}
-
-.tng-Article-viewMode {
-  color: hsl(138, 82%, 28%);
-  font-size: 1.6em;
-  margin-top: 15px;
-  opacity: 0.85;
-}
-
-.tng-Article-viewMode.is-selected {
-  font-weight: bold;
-  opacity: 1;
-  position: relative;
-}
-
-.tng-Article-viewMode.is-selected:before {
-  background-image: url('../myAssets/images/arrow-right-outline-48px-green.png');
-  background-size: contain;
-  content: '';
-  display: block;
-  height: 24px;
-  left: -30px;
-  position: absolute;
-  top: 0.3em;
-  width: 24px;
-}
-
-.tng-Article-closeSelectorBtn {
-  margin-top: 70px;
-}
-
 @media (min-width: 781px) {
+  /* place the indicator below the desktop nav bar and add a box-shadow */
+  .tng-Article-indicator {
+    box-shadow: 0 1px 10px hsla(0, 0%, 0%, 30%);
+    top: 50px;
+  }
+
   /* get the links centered on the page*/
   .tng-Article-linksToArticles {
     margin: 20px auto 0;

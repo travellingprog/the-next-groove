@@ -92,3 +92,20 @@ button:focus {
 button:active {
   transform: scale(0.99);
 }
+
+/* UTILITY CLASSES */
+/* this is the only place where !important does NOT need to be avoided */
+
+.u-desktopOnly {
+  display: none;
+}
+
+@media (min-width: 781px) {
+  .u-desktopOnly {
+    display: block;
+  }
+
+  .u-mobileOnly {
+    display: none !important;
+  }
+}

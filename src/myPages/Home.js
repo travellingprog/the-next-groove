@@ -4,11 +4,11 @@ import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
-import Menu, { getMenuAnimClass } from 'myComponents/Menu'
+import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
 import PageLinks from 'myComponents/PageLinks'
 import * as StickyBar from 'myComponents/StickyBar'
 import WideLogo from 'myComponents/WideLogo'
-import { categoryTexts } from 'myUtils/constants'
+import { categoryBy } from 'myUtils/constants'
 
 import './Home.css'
 
@@ -40,7 +40,7 @@ class Home extends Component {
         </StickyBar.Main>
 
         { /* Menu */ }
-        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
+        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
         <WideLogo className={menuAnimClass} containerHeight='75px' logoWidth='300px' />
@@ -56,8 +56,8 @@ class Home extends Component {
                     <div>
                       <a
                         className='tng-Home-category'
-                        href={`/category/${article.category.toLowerCase()}`}>
-                        {categoryTexts[article.category]}
+                        href={`/category/${categoryBy('key', article.category).path}`}>
+                        {categoryBy('key', article.category).name}
                       </a>
                       <span className='tng-Home-date'>/ {article.publicationDate}</span>
                     </div>

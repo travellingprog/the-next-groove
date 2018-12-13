@@ -4,7 +4,7 @@ import { Titled } from 'react-titled'
 
 import CMSItemLoader from 'myComponents/CMSItemLoader'
 import MarkdownRenderer from 'myComponents/MarkdownRenderer'
-import Menu, { getMenuAnimClass } from 'myComponents/Menu'
+import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
 import WideLogo from 'myComponents/WideLogo'
 import * as StickyBar from 'myComponents/StickyBar'
 
@@ -36,7 +36,7 @@ class About extends Component {
         </StickyBar.Main>
 
         { /* Menu */ }
-        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
+        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
 
         { /* Top Logo */ }
         <WideLogo className={menuAnimClass} containerHeight='60px' logoWidth='250px' />

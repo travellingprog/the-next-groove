@@ -1,4 +1,4 @@
-.tng-Menu {
+.tng-MobileNav {
   background-color: hsla(193, 66%, 33%, 0.85);
   bottom: 0;
   height: 100vh;
@@ -8,24 +8,24 @@
   width: calc(100vw - 63px);
 }
 
-.tng-Menu.is-visible {
+.tng-MobileNav.is-visible {
   transform: translate3d(calc(63px - 100vw), 0, 0);
 }
 
-.tng-Menu-nav {
+.tng-MobileNav-nav {
   bottom: 225px;
   position: absolute;
   right: 25px;
 }
 
-.tng-Menu-navList {
+.tng-MobileNav-navList {
   list-style-type: none;
   margin: 0 0 0 25px;
   padding: 0;
   text-align: right;
 }
 
-.tng-Menu-navItem {
+.tng-MobileNav-navItem {
   color: hsl(0, 0%, 98%);
   display: inline-block;
   font-size: 1.5em;
@@ -34,11 +34,15 @@
   text-decoration: none;
 }
 
-.tng-Menu-navItem--seperate {
+.tng-MobileNav-navItem--home {
   margin-bottom: 1.7em;
 }
 
-.tng-Menu-closeMenuBtn {
+.tng-MobileNav-navItem--about {
+  margin-top: 1.7em;
+}
+
+.tng-MobileNav-closeMenuBtn {
   background-color: hsla(75, 13%, 94%, 74%);
   bottom: 0;
   height: 45px;
@@ -48,15 +52,7 @@
   width: 100%;
 }
 
-.tng-Menu-closeBtnImg {
+.tng-MobileNav-closeBtnImg {
   height: auto;
   width: 35px;
-}
-
-.tng-Menu-neighbor {
-  transition: transform 250ms;
-}
-
-.tng-Menu-neighbor.is-shifted {
-  transform: translate3d(calc(63px - 100vw), 0, 0);
 }

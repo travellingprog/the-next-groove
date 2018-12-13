@@ -1,0 +1,75 @@
+.tng-DesktopNav {
+  background-color: white;
+  box-shadow: 0 1px 10px hsla(0, 0%, 0%, 11%);
+  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.tng-DesktopNav-content {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 950px;
+  padding-left: 16px;
+}
+
+.tng-DesktopNav-logo {
+  flex: 0 1 250px;
+  text-align: left;
+  width: 250px;
+}
+
+.tng-DesktopNav-nav {
+  flex: 1 1 auto;
+}
+
+.tng-DesktopNav-navList {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tng-DesktopNav-navLink {
+  color: hsl(138, 82%, 28%);
+  font-size: 1.2em;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.tng-DesktopNav-navLink:hover {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(138, 82%, 18%);
+}
+
+.tng-DesktopNav-actionBtns {
+  align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+}
+
+.tng-DesktopNav-btn {
+  height: 45px;
+  margin: 0 9px;
+  width: 46px;
+}
+
+.tng-DesktopNav-btn:hover {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.tng-DesktopNav-img {
+  height: auto;
+  vertical-align: middle;
+}
+
+.tng-DesktopNav-img--eye {
+  width: 32px;
+}

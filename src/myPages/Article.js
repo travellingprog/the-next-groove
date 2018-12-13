@@ -7,19 +7,36 @@ import fscreen from 'fscreen'
 import ArticleContent from './article/ArticleContent'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
 import LinkToArticles from './article/LinkToArticles'
-import Menu, { getMenuAnimClass } from 'myComponents/Menu'
-import * as StickyBar from 'myComponents/StickyBar'
+import MenuWrapper from 'myComponents/MenuWrapper'
+import ViewSelector from './article/ViewSelector'
 import sc from 'myUtils/suitClass'
 
 import './Article.css'
 
 class Article extends Component {
+  actions = null
+
   contentRef = React.createRef()
 
   state = {
-    menuOpen: false,
     musicOnly: false,
     selectorOpen: false
+  }
+
+  /** Return the actions that can be done on the article page */
+  getActions () {
+    let actions = []
+    if (fscreen.fullscreenEnabled) {
+      actions.push({
+        alt: 'full screen',
+        className: 'u-mobileOnly',
+        img: 'fullScreen',
+        onClick: this.requestFullscreen
+      })
+    }
+
+    actions.push({ alt: 'toggle view mode', img: 'eye', onClick: this.toggleSelector })
+    return actions
   }
 
   /** Request to open the article in fullscreen */
@@ -31,53 +48,38 @@ class Article extends Component {
   }
 
   /** Set whether Music Only mode is on, to change what content is displayed */
-  setMusicOnly (musicOnly) {
+  setMusicOnly = (musicOnly) => {
     this.setState({ musicOnly, selectorOpen: false })
-  }
-
-  /** Change whether the menu is open or closed */
-  toggleMenu = () => {
-    this.setState({ menuOpen: !this.state.menuOpen })
   }
 
   /** Change whether the selector is open or closed */
   toggleSelector = () => {
+    console.log('toggleSelector triggered')
     this.setState({ selectorOpen: !this.state.selectorOpen })
   }
 
-  render () {
-    let articlePath = ''
+  /**
+   * Render all content wrapped by menus/navigation.
+   * navSlideClass is a CSS that will make content slide when the mobile nav slides in.
+   */
+  renderMain = (navSlideClass) => {
     const { match: routeMatch, previewData } = this.props
+    const { musicOnly, selectorOpen } = this.state
+
+    let articlePath = ''
     if (!previewData) {
       articlePath = routeMatch.params.articlePath
     }
 
-    const { menuOpen, musicOnly, selectorOpen } = this.state
-    const menuAnimClass = getMenuAnimClass(menuOpen)
-
     return (
-      <div className='tng-Article'>
-        { /* Sticky Bar */ }
-        <StickyBar.Main className={`tng-Article-stickyBar ${menuAnimClass}`}>
-          { fscreen.fullscreenEnabled &&
-            <StickyBar.Button img='fullScreen' onClick={this.requestFullscreen} alt='full screen' />
-          }
-          <StickyBar.Button img='eye' onClick={this.toggleSelector} alt='toggle view mode' />
-          <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
-        </StickyBar.Main>
-
-        { /* Menu */ }
-        <Menu open={menuOpen} toggleMenu={this.toggleMenu} />
-
+      <div className={sc('tng-Article', navSlideClass)} ref={this.contentRef}>
         { /* "Music Only" Indicator */ }
-        <div className={sc('tng-Article-indicator', musicOnly && 'is-visible', menuAnimClass)}>
+        <div className={sc('tng-Article-indicator', musicOnly && 'is-visible', navSlideClass)}>
           music only
         </div>
 
         { /* Article Content */ }
-        <div
-          className={sc('tng-Article-content', musicOnly && 'is-musicOnly', menuAnimClass)}
-          ref={this.contentRef}>
+        <div className={sc('tng-Article-content', musicOnly && 'is-musicOnly')}>
           <CMSItemLoader
             itemPath={`articles/${articlePath}.json`}
             previewData={previewData && previewData.article}
@@ -88,7 +90,7 @@ class Article extends Component {
         </div>
 
         { /* Links To Other Articles */ }
-        <div className={`tng-Article-linksToArticles ${menuAnimClass}`}>
+        <div className='tng-Article-linksToArticles'>
           <CMSItemLoader
             itemPath={`generated/article-related/${articlePath}.json`}
             previewData={previewData && previewData.articleRelated}
@@ -99,34 +101,19 @@ class Article extends Component {
         </div>
 
         { /* View Selector */ }
-        <div className={sc('tng-Article-viewSelector', selectorOpen && ' is-visible')}>
-          <div>
-            <div className='tng-Article-selectorTitle'>select view mode</div>
-            <div>
-              <button
-                className={sc('tng-Article-viewMode', !musicOnly && 'is-selected')}
-                onClick={() => this.setMusicOnly(false)}
-              >
-                Text + Music
-              </button>
-            </div>
-            <div>
-              <button
-                className={sc('tng-Article-viewMode', musicOnly && 'is-selected')}
-                onClick={() => this.setMusicOnly(true)}
-              >
-                Music only
-              </button>
-            </div>
-            <div>
-              <button className='tng-Article-closeSelectorBtn' onClick={this.toggleSelector}>
-                <strong>x close</strong>
-              </button>
-            </div>
-          </div>
-        </div>
+        <ViewSelector
+          musicOnly={musicOnly}
+          open={selectorOpen}
+          setMusicOnly={this.setMusicOnly}
+          toggleSelector={this.toggleSelector}
+        />
       </div>
     )
+  }
+
+  render () {
+    this.actions = this.actions || this.getActions()
+    return <MenuWrapper actions={this.actions} render={this.renderMain} />
   }
 }
 
