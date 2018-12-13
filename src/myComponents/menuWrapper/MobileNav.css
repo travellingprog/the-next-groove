@@ -34,8 +34,12 @@
   text-decoration: none;
 }
 
-.tng-MobileNav-navItem--seperate {
+.tng-MobileNav-navItem--home {
   margin-bottom: 1.7em;
+}
+
+.tng-MobileNav-navItem--about {
+  margin-top: 1.7em;
 }
 
 .tng-MobileNav-closeMenuBtn {

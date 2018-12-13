@@ -43,6 +43,12 @@
 }
 
 @media (min-width: 781px) {
+  /* place the indicator below the desktop nav bar and add a box-shadow */
+  .tng-Article-indicator {
+    box-shadow: 0 1px 10px hsla(0, 0%, 0%, 30%);
+    top: 50px;
+  }
+
   /* get the links centered on the page*/
   .tng-Article-linksToArticles {
     margin: 20px auto 0;

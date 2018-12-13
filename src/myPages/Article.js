@@ -14,7 +14,7 @@ import sc from 'myUtils/suitClass'
 import './Article.css'
 
 class Article extends Component {
-  actions = this.getActions()
+  actions = null
 
   contentRef = React.createRef()
 
@@ -27,7 +27,12 @@ class Article extends Component {
   getActions () {
     let actions = []
     if (fscreen.fullscreenEnabled) {
-      actions.push({ alt: 'full screen', img: 'fullScreen', onClick: this.requestFullscreen })
+      actions.push({
+        alt: 'full screen',
+        className: 'u-mobileOnly',
+        img: 'fullScreen',
+        onClick: this.requestFullscreen
+      })
     }
 
     actions.push({ alt: 'toggle view mode', img: 'eye', onClick: this.toggleSelector })
@@ -43,12 +48,13 @@ class Article extends Component {
   }
 
   /** Set whether Music Only mode is on, to change what content is displayed */
-  setMusicOnly (musicOnly) {
+  setMusicOnly = (musicOnly) => {
     this.setState({ musicOnly, selectorOpen: false })
   }
 
   /** Change whether the selector is open or closed */
   toggleSelector = () => {
+    console.log('toggleSelector triggered')
     this.setState({ selectorOpen: !this.state.selectorOpen })
   }
 
@@ -66,16 +72,14 @@ class Article extends Component {
     }
 
     return (
-      <div className={sc('tng-Article', navSlideClass)}>
+      <div className={sc('tng-Article', navSlideClass)} ref={this.contentRef}>
         { /* "Music Only" Indicator */ }
         <div className={sc('tng-Article-indicator', musicOnly && 'is-visible', navSlideClass)}>
           music only
         </div>
 
         { /* Article Content */ }
-        <div
-          className={sc('tng-Article-content', musicOnly && 'is-musicOnly')}
-          ref={this.contentRef}>
+        <div className={sc('tng-Article-content', musicOnly && 'is-musicOnly')}>
           <CMSItemLoader
             itemPath={`articles/${articlePath}.json`}
             previewData={previewData && previewData.article}
@@ -108,6 +112,7 @@ class Article extends Component {
   }
 
   render () {
+    this.actions = this.actions || this.getActions()
     return <MenuWrapper actions={this.actions} render={this.renderMain} />
   }
 }

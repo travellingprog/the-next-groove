@@ -1,6 +1,7 @@
 /** A navigation menu that will slide in from the side on mobile */
 import React from 'react'
 
+import { categories } from 'myUtils/constants'
 import sc from 'myUtils/suitClass'
 
 import closeBtnImg from 'myAssets/images/times-outline-48px-blue.png'
@@ -11,18 +12,18 @@ const MobileNav = ({ open, toggleOpen }) => (
     <nav className='tng-MobileNav-nav'>
       <ul className='tng-MobileNav-navList'>
         <li>
-          <a className='tng-MobileNav-navItem tng-MobileNav-navItem--seperate' href='/'>Home</a>
+          <a className='tng-MobileNav-navItem tng-MobileNav-navItem--home' href='/'>Home</a>
         </li>
-        <li><a className='tng-MobileNav-navItem' href='/category/musings'>Musings</a></li>
-        <li><a className='tng-MobileNav-navItem' href='/category/mixes'>Showcase Mixes</a></li>
+        { categories.map(category =>
+          <li key={category.key}>
+            <a className='tng-MobileNav-navItem' href={`/category/${category.path}`}>
+              {category.namePlural}
+            </a>
+          </li>
+        )}
         <li>
-          <a
-            className='tng-MobileNav-navItem tng-MobileNav-navItem--seperate'
-            href='/category/playlists'>
-            Playlists
-          </a>
+          <a className='tng-MobileNav-navItem tng-MobileNav-navItem--about' href='/about'>About</a>
         </li>
-        <li><a className='tng-MobileNav-navItem' href='/about'>About</a></li>
       </ul>
     </nav>
     <button className='tng-MobileNav-closeMenuBtn' onClick={toggleOpen}>
