@@ -17,13 +17,13 @@ const DesktopNav = ({ actions }) => (
       <nav className='tng-DesktopNav-nav'>
         <ul className='tng-DesktopNav-navList'>
           { categories.map(category =>
-            <li key={category.key} className='tng-DesktopNav-navItem'>
+            <li key={category.key}>
               <a href={`/category/${category.path}`} className='tng-DesktopNav-navLink'>
                 {category.namePlural}
               </a>
             </li>
           )}
-          <li className='tng-DesktopNav-navItem'>
+          <li>
             <a href='/about' className='tng-DesktopNav-navLink'>About</a>
           </li>
         </ul>
