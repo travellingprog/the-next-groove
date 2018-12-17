@@ -7,7 +7,8 @@
 }
 
 .tng-Category-pageArticles {
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
+  max-width: 780px;
 }
 
 .tng-Category-item + .tng-Category-item {
