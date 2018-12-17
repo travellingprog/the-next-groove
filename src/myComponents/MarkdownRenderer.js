@@ -2,6 +2,7 @@ import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
 import EmbeddedMusic from './markdownRenderer/EmbeddedMusic'
+import MarkdownImage from './markdownRenderer/MarkdownImage'
 import SpecialText from './markdownRenderer/SpecialText'
 import sc from 'myUtils/suitClass'
 import './MarkdownRenderer.css'
@@ -20,14 +21,12 @@ const MarkdownRenderer = ({ md, musicOnly = false }) => {
             props: {
               extraClass: 'tng-MarkdownRenderer-music',
               getTrackNumber: () => trackNumber++,
-              showTitle: musicOnly
+              showTrackNumber: musicOnly
             }
           },
           SpecialText,
           img: {
-            props: {
-              className: 'tng-MarkdownRenderer-img'
-            }
+            component: MarkdownImage
           }
         }
       }}

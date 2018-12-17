@@ -8,6 +8,7 @@
   background-color: #E28628;
   color: #FFFFFF;
   display: none;
+  font-size: 16px;
   height: 22px;
   left: 0;
   line-height: 22px;
@@ -43,6 +44,11 @@
 }
 
 @media (min-width: 781px) {
+  /* increase the text height by 25% */
+  .tng-Article {
+    font-size: 1.25em;
+  }
+
   /* place the indicator below the desktop nav bar and add a box-shadow */
   .tng-Article-indicator {
     box-shadow: 0 1px 10px hsla(0, 0%, 0%, 30%);

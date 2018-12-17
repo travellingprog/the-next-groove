@@ -4,7 +4,6 @@
  */
 import React, { Component } from 'react'
 
-import sc from 'myUtils/suitClass'
 import './EmbeddedMusic.css'
 
 class EmbeddedMusic extends Component {
@@ -46,12 +45,15 @@ class EmbeddedMusic extends Component {
 
   render () {
     const { aspectPercentage, trackNumber } = this.state
-    const { extraClass, showTitle, title, iframe } = this.props
+    const { extraClass, showTrackNumber, title, iframe } = this.props
 
     return (
       <div className={`tng-EmbeddedMusic ${extraClass}`}>
-        <div className={sc('tng-EmbeddedMusic-title', showTitle && 'is-visible')}>
-          {trackNumber}. {title}
+        <div className='tng-EmbeddedMusic-title'>
+          {showTrackNumber &&
+            <span>{trackNumber}. </span>
+          }
+          {title}
         </div>
         <div className={aspectPercentage ? 'tng-EmbeddedMusic-fluidFrameWrapper' : ''}
           ref={this.iframeWrapperRef}

@@ -57,9 +57,10 @@
 }
 
 .tng-ArticleHeader-title {
-  font-family: "IBM Plex Serif Web", serif;
-  font-size: 1.3125em;
-  font-weight: bold;
+  font-family: "Lora";
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 @media (min-width: 781px) {
