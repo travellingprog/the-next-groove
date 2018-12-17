@@ -1,5 +1,22 @@
 /* FONTS */
 
+/** Lora **/
+@font-face {
+  font-family: "Lora";
+  src: url("myAssets/fonts/LoraRegular.woff2") format("woff2"),
+    url("myAssets/fonts/LoraRegular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("myAssets/fonts/LoraBold.woff2") format("woff2"),
+    url("myAssets/fonts/LoraBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+
 /** Louis George Cafe **/
 @font-face {
   font-family: "Louis George Cafe Web";
@@ -33,16 +50,6 @@
   font-weight: 700;
 }
 
-/** IBM Plex Serif **/
-@font-face {
-  font-family: "IBM Plex Serif Web";
-  src: url("myAssets/fonts/IBMPlexSerifBold.woff2") format("woff2"),
-    url("myAssets/fonts/IBMPlexSerifBold.woff") format("woff");
-  font-style: normal;
-  font-weight: 700;
-}
-
-
 /* ROOT STYLE */
 
 * {
@@ -58,7 +65,6 @@ body {
   min-height: 100vh;
   padding: 0;
 }
-
 
 /** button: Normalize styling across browsers **/
 button {
