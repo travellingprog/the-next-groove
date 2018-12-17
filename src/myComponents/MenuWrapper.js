@@ -27,7 +27,7 @@ class MenuWrapper extends Component {
   }
 
   render () {
-    const { actions, render } = this.props
+    const { actions, render, ...otherProps } = this.props
     const { mobileNavOpen } = this.state
 
     const mobileActions = [
@@ -44,7 +44,7 @@ class MenuWrapper extends Component {
 
         <DesktopNav actions={actions} />
 
-        {render(navSlideClass)}
+        {render({ navSlideClass, ...otherProps })}
       </div>
     )
   }

@@ -1,81 +1,68 @@
 /** A category page for our site */
-import React, { Component } from 'react'
+import React from 'react'
 import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
-import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
+import MenuWrapper from 'myComponents/MenuWrapper'
 import PageLinks from 'myComponents/PageLinks'
-import * as StickyBar from 'myComponents/StickyBar'
 import WideLogo from 'myComponents/WideLogo'
 import { categoryBy } from 'myUtils/constants'
 
 import './Category.css'
 
-class Category extends Component {
-  state = {
-    menuOpen: false
-  }
+/**
+ * Render all content wrapped by menus/navigation.
+ * navSlideClass is a CSS that will make content slide when the mobile nav slides in.
+ */
+const Category = ({ navSlideClass, match }) => {
+  const { category: categoryPath } = match.params
+  const pageNum = match.params.pageNum || '1'
+  const categoryTitle = categoryBy('path', categoryPath).namePlural
 
-  /** Change whether the menu is open or closed */
-  toggleMenu = () => {
-    this.setState({ menuOpen: !this.state.menuOpen })
-  }
+  return (
+    <div className={`tng-Category ${navSlideClass}`}>
+      { /* Tab Title */ }
+      <Titled
+        title={title =>
+          (pageNum !== '1' ? `${pageNum} | ` : '') + `${categoryTitle} | ${title}`
+        }
+      />
 
-  render () {
-    const { category: categoryPath } = this.props.match.params
-    const pageNum = this.props.match.params.pageNum || '1'
-    const { menuOpen } = this.state
-    const menuAnimClass = getMenuAnimClass(menuOpen)
-    const categoryTitle = categoryBy('path', categoryPath).namePlural
+      { /* Top Logo */ }
+      <WideLogo className='u-mobileOnly' containerHeight='60px' logoWidth='250px' />
 
-    return (
-      <div className='tng-Category'>
-        { /* Tab Title */ }
-        <Titled
-          title={title =>
-            (pageNum !== '1' ? `${pageNum} | ` : '') + `${categoryTitle} | ${title}`
-          }
-        />
-
-        { /* Sticky Bar */ }
-        <StickyBar.Main className={menuAnimClass}>
-          <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
-        </StickyBar.Main>
-
-        { /* Menu */ }
-        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
-
-        { /* Top Logo */ }
-        <WideLogo className={menuAnimClass} containerHeight='60px' logoWidth='250px' />
-
-        { /* Category Title */ }
-        <div className={`tng-Category-title  ${menuAnimClass}`}>
-          {categoryTitle}
-        </div>
-
-        {/* Page Articles */}
-        <CMSItemLoader
-          itemPath={`generated/category/${categoryPath}/${pageNum}.json`}
-          renderOnData={({ pageArticles, links }) =>
-            <div className={`tng-Category-pageArticles ${menuAnimClass}`}>
-              {pageArticles.map((article, idx) =>
-                <div className='tng-Category-item' key={idx}>
-                  <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
-                    <div>
-                      <span className='tng-Category-date'>{article.publicationDate}</span>
-                    </div>
-                  </ArticleHeader>
-                  <div className='tng-Category-articleSummary'>{article.summary}</div>
-                </div>
-              )}
-              <PageLinks links={links} />
-            </div>
-          }
-        />
+      { /* Category Title */ }
+      <div className='tng-Category-title'>
+        {categoryTitle}
       </div>
-    )
-  }
+
+      {/* Page Articles */}
+      <CMSItemLoader
+        itemPath={`generated/category/${categoryPath}/${pageNum}.json`}
+        renderOnData={({ pageArticles, links }) =>
+          <div className='tng-Category-pageArticles'>
+            {pageArticles.map((article, idx) =>
+              <div className='tng-Category-item' key={idx}>
+                <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
+                  <div>
+                    <span className='tng-Category-date'>{article.publicationDate}</span>
+                  </div>
+                </ArticleHeader>
+                <div className='tng-Category-articleSummary'>{article.summary}</div>
+              </div>
+            )}
+            <PageLinks links={links} />
+          </div>
+        }
+      />
+    </div>
+  )
 }
 
-export default Category
+/** A wrapper around page content with the menus/navigation */
+const CategoryWrapper = ({ match }) => (
+  <MenuWrapper actions={[]} render={Category} match={match} />
+)
+
+export default CategoryWrapper

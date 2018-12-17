@@ -54,7 +54,6 @@ class Article extends Component {
 
   /** Change whether the selector is open or closed */
   toggleSelector = () => {
-    console.log('toggleSelector triggered')
     this.setState({ selectorOpen: !this.state.selectorOpen })
   }
 
@@ -62,7 +61,7 @@ class Article extends Component {
    * Render all content wrapped by menus/navigation.
    * navSlideClass is a CSS that will make content slide when the mobile nav slides in.
    */
-  renderMain = (navSlideClass) => {
+  renderMain = ({ navSlideClass }) => {
     const { match: routeMatch, previewData } = this.props
     const { musicOnly, selectorOpen } = this.state
 
