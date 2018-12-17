@@ -1,77 +1,64 @@
 /** The home page of our site */
-import React, { Component } from 'react'
+import React from 'react'
 import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
-import DeprecatedMenu, { getMenuAnimClass } from 'myComponents/DeprecatedMenu'
+import MenuWrapper from 'myComponents/MenuWrapper'
 import PageLinks from 'myComponents/PageLinks'
-import * as StickyBar from 'myComponents/StickyBar'
 import WideLogo from 'myComponents/WideLogo'
 import { categoryBy } from 'myUtils/constants'
 
 import './Home.css'
 
-class Home extends Component {
-  state = {
-    menuOpen: false
-  }
+/**
+ * Render all content wrapped by menus/navigation.
+ * navSlideClass is a CSS that will make content slide when the mobile nav slides in.
+ */
+const Home = ({ navSlideClass, match }) => {
+  const pageNum = match.params.pageNum || '1'
 
-  /** Change whether the menu is open or closed */
-  toggleMenu = () => {
-    this.setState({ menuOpen: !this.state.menuOpen })
-  }
+  return (
+    <div className={`tng-Home ${navSlideClass}`}>
+      { /* Tab Title */ }
+      {pageNum !== '1' &&
+        <Titled title={title => `page ${pageNum} | ${title}`} />
+      }
 
-  render () {
-    const pageNum = this.props.match.params.pageNum || '1'
-    const { menuOpen } = this.state
-    const menuAnimClass = getMenuAnimClass(menuOpen)
+      { /* Top Logo */ }
+      <WideLogo className='u-mobileOnly' containerHeight='75px' logoWidth='300px' />
 
-    return (
-      <div className='tng-Home'>
-        { /* Tab Title */ }
-        {pageNum !== '1' &&
-          <Titled title={title => `page ${pageNum} | ${title}`} />
+      {/* Page Articles */}
+      <CMSItemLoader
+        itemPath={`generated/home/${pageNum}.json`}
+        renderOnData={({ pageArticles, links }) =>
+          <div className='tng-Home-pageArticles'>
+            {pageArticles.map((article, idx) =>
+              <div className='tng-Home-item' key={idx}>
+                <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
+                  <div>
+                    <a
+                      className='tng-Home-category'
+                      href={`/category/${categoryBy('key', article.category).path}`}>
+                      {categoryBy('key', article.category).name}
+                    </a>
+                    <span className='tng-Home-date'>/ {article.publicationDate}</span>
+                  </div>
+                </ArticleHeader>
+                <div className='tng-Home-articleSummary'>{article.summary}</div>
+              </div>
+            )}
+            <PageLinks links={links} />
+          </div>
         }
-
-        { /* Sticky Bar */ }
-        <StickyBar.Main className={menuAnimClass}>
-          <StickyBar.Button img='menu' onClick={this.toggleMenu} alt='toggle menu' />
-        </StickyBar.Main>
-
-        { /* Menu */ }
-        <DeprecatedMenu open={menuOpen} toggleMenu={this.toggleMenu} />
-
-        { /* Top Logo */ }
-        <WideLogo className={menuAnimClass} containerHeight='75px' logoWidth='300px' />
-
-        {/* Page Articles */}
-        <CMSItemLoader
-          itemPath={`generated/home/${pageNum}.json`}
-          renderOnData={({ pageArticles, links }) =>
-            <div className={`tng-Home-pageArticles ${menuAnimClass}`}>
-              {pageArticles.map((article, idx) =>
-                <div className='tng-Home-item' key={idx}>
-                  <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
-                    <div>
-                      <a
-                        className='tng-Home-category'
-                        href={`/category/${categoryBy('key', article.category).path}`}>
-                        {categoryBy('key', article.category).name}
-                      </a>
-                      <span className='tng-Home-date'>/ {article.publicationDate}</span>
-                    </div>
-                  </ArticleHeader>
-                  <div className='tng-Home-articleSummary'>{article.summary}</div>
-                </div>
-              )}
-              <PageLinks links={links} />
-            </div>
-          }
-        />
-      </div>
-    )
-  }
+      />
+    </div>
+  )
 }
 
-export default Home
+/** A wrapper around page content with the menus/navigation */
+const HomeWrapper = ({ match }) => (
+  <MenuWrapper actions={[]} render={Home} match={match} />
+)
+
+export default HomeWrapper
