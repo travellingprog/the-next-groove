@@ -61,8 +61,8 @@ const Category = ({ navSlideClass, match }) => {
 }
 
 /** A wrapper around page content with the menus/navigation */
-const CategoryWrapper = ({ match }) => (
-  <MenuWrapper actions={[]} render={Category} match={match} />
+const CategoryWrapper = (props) => (
+  <MenuWrapper render={Category} {...props} />
 )
 
 export default CategoryWrapper
