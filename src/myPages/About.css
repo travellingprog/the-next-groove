@@ -1,7 +1,7 @@
 .tng-About-title {
   color: hsl(193, 66%, 33%);
   font-size: 2em;
-  letter-spacing: 5px;
+  letter-spacing: 0.15625em;
   margin-top: 20px;
   text-align: center;
 }
@@ -10,9 +10,29 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 200px;
+  height: 62.50vw;
+  max-height: 300px;
+}
+
+.tng-About-content {
+  margin: 0 auto;
+  max-width: 780px;
 }
 
 .tng-About-text {
-  margin: 20px 20px 15px 20px;
+  color: hsl(0, 0%, 13%);
+  line-height: 1.2;
+  margin: 20px 20px 15px;
+}
+
+@media (min-width: 781px) {
+  /* increase text size */
+  .tng-About {
+    font-size: 1.25em;
+  }
+
+  /* increase the line-height */
+  .tng-About-text {
+    line-height: 1.3;
+  }
 }

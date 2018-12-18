@@ -44,8 +44,8 @@ const About = ({ navSlideClass, previewData }) =>(
 )
 
 /** A wrapper around page content with the menus/navigation */
-const AboutWrapper = ({ previewData }) => (
-  <MenuWrapper actions={[]} render={About} previewData={previewData} />
+const AboutWrapper = (props) => (
+  <MenuWrapper render={About} { ...props } />
 )
 
 export default AboutWrapper

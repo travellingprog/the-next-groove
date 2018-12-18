@@ -27,7 +27,7 @@ class MenuWrapper extends Component {
   }
 
   render () {
-    const { actions, render, ...otherProps } = this.props
+    const { actions = [], render, ...otherProps } = this.props
     const { mobileNavOpen } = this.state
 
     const mobileActions = [
