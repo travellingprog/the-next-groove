@@ -57,8 +57,8 @@ const Home = ({ navSlideClass, match }) => {
 }
 
 /** A wrapper around page content with the menus/navigation */
-const HomeWrapper = ({ match }) => (
-  <MenuWrapper actions={[]} render={Home} match={match} />
+const HomeWrapper = (props) => (
+  <MenuWrapper render={Home} {...props} />
 )
 
 export default HomeWrapper
