@@ -27,7 +27,7 @@ class MenuWrapper extends Component {
   }
 
   render () {
-    const { actions = [], render, ...otherProps } = this.props
+    const { actions = [], mobileOnly = false, render, ...otherProps } = this.props
     const { mobileNavOpen } = this.state
 
     const mobileActions = [
@@ -38,11 +38,13 @@ class MenuWrapper extends Component {
     const navSlideClass = sc('tng-MenuWrapper-neighbor', mobileNavOpen && 'is-shifted')
 
     return (
-      <div className='tng-MenuWrapper'>
+      <div className={sc('tng-MenuWrapper', mobileOnly && '--mobileOnly')}>
         <MobileStickyBar actions={mobileActions} className={navSlideClass} />
         <MobileNav open={mobileNavOpen} toggleOpen={this.toggleMobileNav} />
 
-        <DesktopNav actions={actions} />
+        {!mobileOnly &&
+          <DesktopNav actions={actions} />
+        }
 
         {render({ navSlideClass, ...otherProps })}
       </div>

@@ -4,6 +4,7 @@ import { Titled } from 'react-titled'
 
 import ArticleHeader from 'myComponents/ArticleHeader'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
+import HomeDesktopNav from './home/HomeDesktopNav'
 import MenuWrapper from 'myComponents/MenuWrapper'
 import PageLinks from 'myComponents/PageLinks'
 import WideLogo from 'myComponents/WideLogo'
@@ -27,6 +28,15 @@ const Home = ({ navSlideClass, match }) => {
 
       { /* Top Logo */ }
       <WideLogo className='u-mobileOnly' containerHeight='75px' logoWidth='300px' />
+      <WideLogo className='u-desktopOnly' containerHeight='75px' logoWidth='400px' />
+
+      { /* Navigation for Desktop Screen Width */ }
+      <HomeDesktopNav />
+
+      { /* Page Number */ }
+      {pageNum !== '1' &&
+        <div className='tng-Home-pageNum'>page {pageNum}</div>
+      }
 
       {/* Page Articles */}
       <CMSItemLoader
@@ -58,7 +68,7 @@ const Home = ({ navSlideClass, match }) => {
 
 /** A wrapper around page content with the menus/navigation */
 const HomeWrapper = (props) => (
-  <MenuWrapper render={Home} {...props} />
+  <MenuWrapper mobileOnly render={Home} {...props} />
 )
 
 export default HomeWrapper
