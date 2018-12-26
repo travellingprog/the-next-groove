@@ -1,3 +1,11 @@
+.tng-Home-pageNum {
+  color: hsl(193, 66%, 33%);
+  font-size: 1.125em;
+  margin-bottom: 20px;
+  text-align: center;
+  word-spacing: 5px;
+}
+
 .tng-Home-pageArticles {
   margin: 0 auto 15px;
   max-width: 780px;

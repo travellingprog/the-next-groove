@@ -1,0 +1,29 @@
+.tng-HomeDesktopNav {
+  height: 50px;
+  margin-bottom: 40px;
+}
+
+.tng-HomeDesktopNav-list {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0;
+}
+
+.tng-HomeDesktopNav-link {
+  color: hsl(138, 82%, 28%);
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.tng-HomeDesktopNav-link:hover {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(138, 82%, 18%);
+}
