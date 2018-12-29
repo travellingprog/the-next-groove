@@ -16,15 +16,10 @@ class ArticleHeader extends Component {
 
   componentDidMount () {
     this.setBackgroundImagesShift()
-    window.addEventListener('resize', this.setBackgroundImagesShift);
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.setBackgroundImagesShift);
   }
 
   /**
-   * check the dimensions of the image, to figure out how much to shift the adjacent
+   * check the aspect ratio of the image, to figure out how much to shift the adjacent
    * background images, which creates a cool effect
    */
   setBackgroundImagesShift = () => {
@@ -32,12 +27,12 @@ class ArticleHeader extends Component {
     const img = new window.Image()
 
     img.onload = function () {
-      // according to our CSS, the image height will be 66.66vw or 520px, whichever is smaller
-      const renderedHeight = Math.min(Math.abs(0.6666 * window.innerWidth), 520)
+      const containerAspectRatio = 1.5
+      const imageAspectRatio = this.width / this.height
 
-      // We need to shift our background image by half of the image's rendered width
-      const renderedWidth = this.width * (renderedHeight / this.height)
-      component.setState({ bgShift: renderedWidth * 0.5 })
+      if (imageAspectRatio < containerAspectRatio) {
+        component.setState({ bgShift: imageAspectRatio * 100 / containerAspectRatio })
+      }
     }
 
     img.src = this.props.image
@@ -50,20 +45,22 @@ class ArticleHeader extends Component {
     let bgLStyle = { backgroundImage: `url(${image})` }
     let bgRStyle = { ...bgLStyle }
     if (bgShift) {
-      bgLStyle.transform = `translate3d(-${bgShift}px, 0, 0)`
-      bgRStyle.transform = `translate3d(${bgShift}px, 0, 0)`
+      bgLStyle.transform = `translate3d(-${bgShift}%, 0, 0)`
+      bgRStyle.transform = `translate3d(${bgShift}%, 0, 0)`
     }
 
     return (
       <div className='tng-ArticleHeader'>
         <OptionalLinkWrapper link={link}>
           <div className='tng-ArticleHeader-imgContainer'>
-            <div className='tng-ArticleHeader-imgBackground' style={bgLStyle} />
-            <div
-              className='tng-ArticleHeader-imgBackground tng-ArticleHeader-imgBackground--right'
-              style={bgRStyle}
-            />
-            <img alt='' className='tng-ArticleHeader-image' src={image} />
+            <div className='tng-ArticleHeader-imgContainerInner'>
+              <div className='tng-ArticleHeader-imgBackground' style={bgLStyle} />
+              <div
+                className='tng-ArticleHeader-imgBackground tng-ArticleHeader-imgBackground--right'
+                style={bgRStyle}
+              />
+              <img alt='' className='tng-ArticleHeader-image' src={image} />
+            </div>
           </div>
         </OptionalLinkWrapper>
         <div className='tng-ArticleHeader-titleBox'>

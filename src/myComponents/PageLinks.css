@@ -11,3 +11,10 @@
   text-align: right;
   text-decoration: none;
 }
+
+@media (min-width: 991px) {
+  /* Make the page links take up the full width of our desktop flex layout */
+  .tng-PageLinks {
+    flex: 1 0 100%;
+  }
+}
