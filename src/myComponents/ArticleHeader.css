@@ -4,81 +4,65 @@
 }
 
 .tng-ArticleHeader-imgContainer {
-  display: flex;
-  height: 66.66vw;
-  justify-content: center;
-  max-height: 520px;
-  overflow: hidden;
+  height: 0;
+  padding-bottom: 66.67%;
   position: relative;
+}
+
+.tng-ArticleHeader-imgContainerInner {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
   text-align: center;
+  top: 0;
+  width: 100%;
 }
 
 .tng-ArticleHeader-image {
   border-color: white;
   border-style: solid;
   border-width: 0 3px;
-  height: 66.66vw;
-  max-height: 520px;
-  position: relative;
+  height: 100%;
   width: auto;
   z-index: 1;
 }
 
 .tng-ArticleHeader-imgBackground {
   background-position: top left;
-  background-size: 100vw auto;
-  height: 66.66vw;
+  background-size: 200% auto;
+  height: 100%;
   left: 0;
-  max-height: 520px;
   opacity: 0.8;
   position: absolute;
   top: 0;
   transition: transform 1200ms;
-  width: 50vw;
+  width: 50%;
   z-index: 0;
 }
 
 .tng-ArticleHeader-imgBackground--right {
   background-position: top right;
-  left: 50vw;
+  left: 50%;
 }
 
 .tng-ArticleHeader-titleBox {
   background-color: hsl(0, 0%, 98%);
-  border-top: 1px solid hsla(0, 0%, 0%, 10%);
   color: hsl(138, 82%, 28%);
   max-width: 650px;
   min-height: 30px;
   padding: 10px 15px 0;
   position: relative;
   top: -30px;
-  width: calc(100vw - 15px);
+  width: 90%;
   z-index: 2;
 }
 
 .tng-ArticleHeader-title {
-  font-family: "Lora";
+  font-family: "Lora", serif;
   font-size: 1.5em;
   font-weight: 600;
   letter-spacing: 0.5px;
-}
-
-@media (min-width: 781px) {
-  /* Set the image height to a fixed size */
-  .tng-ArticleHeader-imgContainer,
-  .tng-ArticleHeader-image,
-  .tng-ArticleHeader-imgBackground {
-    height: 520px;
-  }
-
-  /* Set the img background size to a fixed size */
-  .tng-ArticleHeader-imgBackground {
-    background-size: 780px auto;
-    width: 390px;
-  }
-
-  /* Set the left offset to a fixed size */
-  .tng-ArticleHeader-imgBackground--right {
-    left: 390px;
-  }
 }

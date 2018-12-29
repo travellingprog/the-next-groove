@@ -33,3 +33,25 @@
   padding: 5px 15px 0;
   word-spacing: 0.1em;
 }
+
+@media (min-width: 991px) {
+  /* Set a layout of 2 columns of articles */
+  .tng-Home-pageArticles {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    max-width: 960px;
+  }
+
+  /* Set width of each article to take a column width */
+  .tng-Home-item {
+    flex: 0 0 465px;
+    margin-bottom: 40px;
+  }
+
+  /* Remove the margin-top, it's replaced a margin-bottom instead */
+  .tng-Home-item + .tng-Home-item {
+    margin-top: 0;
+  }
+}
