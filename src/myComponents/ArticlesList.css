@@ -1,0 +1,54 @@
+.tng-ArticlesList {
+  margin: 0 auto;
+  max-width: 780px;
+}
+
+.tng-ArticlesList-item + .tng-ArticlesList-item {
+  margin-top: 40px;
+}
+
+.tng-ArticlesList-category {
+  color: hsl(138, 82%, 28%);
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.tng-ArticlesList-separator {
+  color: hsl(193, 66%, 33%);
+  font-size: 12px;
+  margin: 0 4px 0 8px;
+}
+
+.tng-ArticlesList-date {
+  color: hsl(193, 66%, 33%);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tng-ArticlesList-articleSummary {
+  line-height: 1.4;
+  padding: 5px 15px 0;
+  word-spacing: 0.1em;
+}
+
+@media (min-width: 991px) {
+  /* Set a layout of 2 columns of articles */
+  .tng-ArticlesList {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    max-width: 960px;
+  }
+
+  /* Set width of each article to take a column width */
+  .tng-ArticlesList-item {
+    flex: 0 0 465px;
+    margin-bottom: 40px;
+  }
+
+  /* Remove the margin-top, it's replaced with a margin-bottom instead */
+  .tng-ArticlesList-item + .tng-ArticlesList-item {
+    margin-top: 0;
+  }
+}

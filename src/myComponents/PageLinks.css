@@ -1,6 +1,8 @@
 .tng-PageLinks {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 780px;
   padding: 20px 15px;
 }
 
@@ -13,8 +15,8 @@
 }
 
 @media (min-width: 991px) {
-  /* Make the page links take up the full width of our desktop flex layout */
+  /* Increase the max-width to line-up with articles columns above it */
   .tng-PageLinks {
-    flex: 1 0 100%;
+    max-width: 960px;
   }
 }

@@ -2,13 +2,12 @@
 import React from 'react'
 import { Titled } from 'react-titled'
 
-import ArticleHeader from 'myComponents/ArticleHeader'
+import ArticlesList from 'myComponents/ArticlesList'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
 import HomeDesktopNav from './home/HomeDesktopNav'
 import MenuWrapper from 'myComponents/MenuWrapper'
 import PageLinks from 'myComponents/PageLinks'
 import WideLogo from 'myComponents/WideLogo'
-import { categoryBy } from 'myUtils/constants'
 
 import './Home.css'
 
@@ -42,22 +41,11 @@ const Home = ({ navSlideClass, match }) => {
       <CMSItemLoader
         itemPath={`generated/home/${pageNum}.json`}
         renderOnData={({ pageArticles, links }) =>
-          <div className='tng-Home-pageArticles'>
-            {pageArticles.map((article, idx) =>
-              <div className='tng-Home-item' key={idx}>
-                <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
-                  <div>
-                    <a
-                      className='tng-Home-category'
-                      href={`/category/${categoryBy('key', article.category).path}`}>
-                      {categoryBy('key', article.category).name}
-                    </a>
-                    <span className='tng-Home-date'>/ {article.publicationDate}</span>
-                  </div>
-                </ArticleHeader>
-                <div className='tng-Home-articleSummary'>{article.summary}</div>
-              </div>
-            )}
+          <div>
+            { /* Articles List */ }
+            <ArticlesList articles={pageArticles} />
+
+            {/* Links To Other Pages */}
             <PageLinks links={links} />
           </div>
         }
