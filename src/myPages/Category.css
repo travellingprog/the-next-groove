@@ -1,28 +1,15 @@
+.tng-Category-pageNum {
+  color: hsl(193, 66%, 33%);
+  font-size: 1.125em;
+  margin-bottom: 20px;
+  text-align: center;
+  word-spacing: 5px;
+}
+
 .tng-Category-title {
   color: hsl(138, 82%, 28%);
   font-size: 32px;
   letter-spacing: 2px;
   margin: 0px 0 20px;
   text-align: center;
-}
-
-.tng-Category-pageArticles {
-  margin: 0 auto 15px;
-  max-width: 780px;
-}
-
-.tng-Category-item + .tng-Category-item {
-  margin-top: 40px;
-}
-
-.tng-Category-date {
-  color: hsl(193, 66%, 33%);
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.tng-Category-articleSummary {
-  line-height: 1.4;
-  padding: 5px 15px 0;
-  word-spacing: 0.1em;
 }

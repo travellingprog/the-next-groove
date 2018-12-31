@@ -2,7 +2,7 @@
 import React from 'react'
 import { Titled } from 'react-titled'
 
-import ArticleHeader from 'myComponents/ArticleHeader'
+import ArticlesList from 'myComponents/ArticlesList'
 import CMSItemLoader from 'myComponents/CMSItemLoader'
 import MenuWrapper from 'myComponents/MenuWrapper'
 import PageLinks from 'myComponents/PageLinks'
@@ -37,21 +37,20 @@ const Category = ({ navSlideClass, match }) => {
         {categoryTitle}
       </div>
 
-      {/* Page Articles */}
+      { /* Page Number */ }
+      {pageNum !== '1' &&
+        <div className='tng-Category-pageNum'>page {pageNum}</div>
+      }
+
+      {/* Load Articles File */}
       <CMSItemLoader
         itemPath={`generated/category/${categoryPath}/${pageNum}.json`}
         renderOnData={({ pageArticles, links }) =>
-          <div className='tng-Category-pageArticles'>
-            {pageArticles.map((article, idx) =>
-              <div className='tng-Category-item' key={idx}>
-                <ArticleHeader image={article.mainImage} title={article.title} link={article.urlPath}>
-                  <div>
-                    <span className='tng-Category-date'>{article.publicationDate}</span>
-                  </div>
-                </ArticleHeader>
-                <div className='tng-Category-articleSummary'>{article.summary}</div>
-              </div>
-            )}
+          <div>
+            { /* Articles List */ }
+            <ArticlesList articles={pageArticles} showCategory={false} />
+
+            {/* Links To Other Pages */}
             <PageLinks links={links} />
           </div>
         }
