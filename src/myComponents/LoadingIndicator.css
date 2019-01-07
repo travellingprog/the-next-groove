@@ -1,0 +1,41 @@
+.tng-LoadingIndicator {
+  text-align: center;
+}
+
+.tng-LoadingIndicator-img {
+  animation: skeyImg 2.5s infinite both;
+  height: 80px;
+}
+
+.tng-LoadingIndicator-text {
+  animation: pulse 1.25s infinite both;
+  color: hsl(193, 66%, 33%);
+}
+
+@keyframes skeyImg {
+  0%  {
+    transform: skew(40deg, 0);
+  }
+
+  50% {
+    transform: skew(-20deg, 0);
+  }
+
+  100%  {
+    transform: skew(40deg, 0);
+  }
+}
+
+@keyframes pulse {
+  0%  {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100%  {
+    opacity: 1;
+  }
+}
