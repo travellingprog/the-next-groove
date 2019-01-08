@@ -1,9 +1,10 @@
 .tng-LoadingIndicator {
+  padding: 20px 0;
   text-align: center;
 }
 
 .tng-LoadingIndicator-img {
-  animation: skeyImg 2.5s infinite both;
+  animation: skewImg 2.5s infinite both;
   height: 80px;
 }
 
@@ -12,7 +13,7 @@
   color: hsl(193, 66%, 33%);
 }
 
-@keyframes skeyImg {
+@keyframes skewImg {
   0%  {
     transform: skew(40deg, 0);
   }

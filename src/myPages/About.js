@@ -24,6 +24,7 @@ const About = ({ navSlideClass, previewData }) =>(
     { /* Main Content */ }
     <section className='tng-About-content'>
       <CMSItemLoader
+        description='page text'
         itemPath='pages/about.json'
         previewData={previewData}
         renderOnData={data =>

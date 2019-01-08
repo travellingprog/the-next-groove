@@ -44,6 +44,7 @@ const Category = ({ navSlideClass, match }) => {
 
       {/* Load Articles File */}
       <CMSItemLoader
+        description='category articles'
         itemPath={`generated/category/${categoryPath}/${pageNum}.json`}
         renderOnData={({ pageArticles, links }) =>
           <div>
