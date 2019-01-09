@@ -80,6 +80,7 @@ class Article extends Component {
         { /* Article Content */ }
         <div className={sc('tng-Article-content', musicOnly && 'is-musicOnly')}>
           <CMSItemLoader
+            description='article content'
             itemPath={`articles/${articlePath}.json`}
             previewData={previewData && previewData.article}
             renderOnData={data =>
@@ -91,11 +92,13 @@ class Article extends Component {
         { /* Links To Other Articles */ }
         <div className='tng-Article-linksToArticles'>
           <CMSItemLoader
+            description='links to other articles'
             itemPath={`generated/article-related/${articlePath}.json`}
             previewData={previewData && previewData.articleRelated}
             renderOnData={data =>
               <LinkToArticles data={data} />
             }
+            required={false}
           />
         </div>
 

@@ -39,6 +39,7 @@ const Home = ({ navSlideClass, match }) => {
 
       {/* Page Articles */}
       <CMSItemLoader
+        description='articles list'
         itemPath={`generated/home/${pageNum}.json`}
         renderOnData={({ pageArticles, links }) =>
           <div>
