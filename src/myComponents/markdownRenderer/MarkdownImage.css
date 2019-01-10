@@ -1,8 +1,5 @@
 .tng-MarkdownImage {
-  text-align: center;
-  width: 100%;
-}
-
-.tng-MarkdownImage-img {
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
 }

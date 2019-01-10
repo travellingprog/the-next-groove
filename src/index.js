@@ -1,39 +1,22 @@
+/**
+  * The Next Groove
+  * Our routes and global CSS is set here
+  */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Loadable from 'react-loadable'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Titled } from 'react-titled'
 import 'normalize.css'
 
 import './index.css'
+import Importer from 'myComponents/Importer'
 import NoContent from 'myPages/NoContent'
 
-const Loading = () => <div>Loading...</div>
-
-const About = Loadable({
-  loader: () => import('myPages/About'),
-  loading: Loading
-})
-
-const Admin = Loadable({
-  loader: () => import('myPages/Admin'),
-  loading: Loading
-})
-
-const Article = Loadable({
-  loader: () => import('myPages/Article'),
-  loading: Loading
-})
-
-const Category = Loadable({
-  loader: () => import('myPages/Category'),
-  loading: Loading
-})
-
-const Home = Loadable({
-  loader: () => import('myPages/Home'),
-  loading: Loading
-})
+const About = Importer(() => import('myPages/About'))
+const Admin = Importer(() => import('myPages/Admin'))
+const Article = Importer(() => import('myPages/Article'))
+const Category = Importer(() => import('myPages/Category'))
+const Home = Importer(() => import('myPages/Home'))
 
 const App = () => (
   <BrowserRouter>
