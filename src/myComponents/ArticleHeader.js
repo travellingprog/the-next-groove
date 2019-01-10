@@ -5,8 +5,8 @@
  */
 
 import React, { Component } from 'react'
-import OptionalLinkWrapper from './OptionalLinkWrapper'
 
+import OptionalLinkWrapper from './OptionalLinkWrapper'
 import './ArticleHeader.css'
 
 class ArticleHeader extends Component {
