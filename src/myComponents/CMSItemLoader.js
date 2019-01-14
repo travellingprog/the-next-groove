@@ -30,12 +30,12 @@ class CMSItemLoader extends Component {
     try {
       let response = null;
 
-      // wait 200ms before showing a loading indicator
+      // wait 400ms before showing a loading indicator
       setTimeout(() => {
         if (!response && !this.state.errorOnLoad) {
           this.setState({ loading: true })
         }
-      }, 200)
+      }, 400)
 
       const fullPath = `${basePath}/${itemPath}`
       response = await fetch(fullPath)

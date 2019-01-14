@@ -29,6 +29,7 @@ const Loading = ({ error, pastDelay }) => {
 }
 
 const Importer = (loader) => Loadable({
+  delay: 400,
   loader,
   loading: Loading
 })
