@@ -9,8 +9,8 @@ const ArticlePreview = ({ entry, getAsset }) => {
   article.mainImage = article.mainImage && getAsset(article.mainImage).toString()
 
   const articleRelated = {
-    nextArticle: { title: 'A History Of Drum Machines', urlPath: '/no-content' },
-    previousArticle: { title: 'A Map Of Electronic Scenes', urlPath: '/no-content' }
+    nextArticle: { title: 'A History Of Drum Machines', urlPath: '/not-found' },
+    previousArticle: { title: 'A Map Of Electronic Scenes', urlPath: '/not-found' }
   }
 
   return (

@@ -10,7 +10,7 @@ import 'normalize.css'
 
 import './index.css'
 import Importer from 'myComponents/Importer'
-import NoContent from 'myPages/NoContent'
+import NotFound from 'myPages/NotFound'
 
 const About = Importer(() => import('myPages/About'))
 const Admin = Importer(() => import('myPages/Admin'))
@@ -28,9 +28,9 @@ const App = () => (
         <Route path='/article/:articlePath' component={Article} />
         <Route path='/category/:category' component={Category} />
         <Route path='/category/:category/:pageNum' component={Category} />
-        <Route path='/no-content' component={NoContent} />
+        <Route path='/not-found' component={NotFound} />
         <Route path='/page/:pageNum' component={Home} />
-        <Route component={NoContent} />
+        <Route component={NotFound} />
       </Switch>
     </Titled>
   </BrowserRouter>
