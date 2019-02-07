@@ -20,4 +20,41 @@ Files named LICENSE or NOLICENSE have been placed within some folders to indicat
 
 One of the main reasons that this repository has been made public is to serve as a portfolio piece for the developer. However, the developer also hopes that this will serve as a good example to other developers, and wishes to contribute to the open-source community, even in a limited capacity.
 
+## Installation
+
+### Pre-Requirements
+
+- Node (see package.json for version)
+- Yarn (see package.json for version)
+- Docker 18.06
+
+### Run The Site Locally (Not the CMS)
+
+Fork this repo
+
+```
+docker build . -t [some-name]
+docker run -it --rm -p3001:3001 IMAGE COMMAND
+```
+
+Will start the server on 3001
+
+### Run the CMS Locally
+
+
+```
+# Create file .env.development.local with:
+REACT_APP_CMS_BACKEND_BRANCH=dev-content
+```
+
+On Netlify.com (at the time of writing):
+
+- Create Profile
+- Select "New Site From Git"
+- Click "Connect to the Fork repo"
+- Build Command: `yarn run build`
+- Publish: `build`
+- Enable Identity
+- Identity->Invite Users
+- Identity->Settings->Services->Enable Git Gateway
 
