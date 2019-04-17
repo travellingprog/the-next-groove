@@ -4,9 +4,11 @@
  * dipslays how many characters you've written so far.
  */
 import React, { Component } from 'react'
-import { TextControl as NetlifyTextWidget } from 'netlify-cms-widget-text'
+import NetlifyCmsWidgetText from 'netlify-cms-widget-text'
 
 import './LimitedText.css'
+
+const NetlifyTextWidget = NetlifyCmsWidgetText.controlComponent
 
 const LimitedText = (limitNum) => {
   // This needs to return a React component class, not just a stateless component.
