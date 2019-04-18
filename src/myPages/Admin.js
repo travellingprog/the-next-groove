@@ -8,6 +8,7 @@ import AboutPreview from './admin/AboutPreview'
 import ArticlePreview from './admin/ArticlePreview'
 import EditorEmbeddedMusic from './admin/EditorEmbeddedMusic'
 import EditorSpecialText from './admin/EditorSpecialText'
+import EditorTracklist from './admin/EditorTracklist'
 import LimitedText from './admin/LimitedText'
 import config from './admin/config'
 
@@ -19,6 +20,7 @@ class Admin extends Component {
 
     CMS.registerEditorComponent(EditorEmbeddedMusic)
     CMS.registerEditorComponent(EditorSpecialText)
+    CMS.registerEditorComponent(EditorTracklist)
 
     CMS.registerWidget('text160Limit', LimitedText(160))
 

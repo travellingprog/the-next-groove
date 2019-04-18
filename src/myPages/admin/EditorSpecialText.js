@@ -1,3 +1,8 @@
+/**
+ * EditorSpecialText is a NetlifyCMS editor component that allows the admin user
+ * to specify text transformations that are not available in Markdown (alignment, text size).
+ * These transformations will be applied on the text in the following paragraph.
+ */
 export default {
   id: 'specialText',
   label: 'Special Text',
@@ -25,11 +30,14 @@ export default {
       hint: 'These settings will affect the next paragraph'
     }
   ],
-  pattern: /^<SpecialText\s+align="([A-Z]*)"\s+size="([A-Z]*)"\s+\/>/,
-  fromBlock: regexMatch => ({
-    align: regexMatch[1],
-    size: regexMatch[2]
-  }),
+  pattern: /^<SpecialText\s+align="(.*)"\s+size="(.*)"\s+\/>/,
+  fromBlock: regexMatch => {
+    console.log('EditorSpecialText regexMatch', regexMatch)
+    return {
+      align: regexMatch[1],
+      size: regexMatch[2]
+    }
+  },
   toBlock: ({ align, size }) => `<SpecialText align="${align}" size="${size}" />`,
   toPreview: () => `<div></div>` // will be overriden by MarkdownRenderer
 }

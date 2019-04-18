@@ -1,0 +1,31 @@
+.tng-Tracklist {
+  margin: 1.75em 0;
+}
+
+.tng-Tracklist-title {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.tng-Tracklist-list {
+  list-style: none;
+  margin: 0.5em 0;
+  padding: 0 0 0 1.5em;
+}
+
+.tng-Tracklist-time {
+  font-family: monospace, monospace;
+  font-size: 0.9em;
+}
+
+.tng-Tracklist-artist {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 8px 0 0;
+}
+
+.tng-Tracklist-name {
+  font-size: 0.9em;
+}
