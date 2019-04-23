@@ -14,9 +14,11 @@ const Tracklist = ({ tracksStr }) => {
       <ul className='tng-Tracklist-list'>
         {tracks.map(({ startTime, artist, trackName }, i) =>
           <li className='tng-Tracklist-item' key={i}>
-            <span className='tng-Tracklist-time'>{formatTime(startTime)} </span>
-            <span className='tng-Tracklist-artist'>{artist}</span>
-            <span className='tng-Tracklist-name'>{trackName}</span>
+            <div className='tng-Tracklist-time'>{formatTime(startTime)} </div>
+            <div>
+              <div className='tng-Tracklist-artist'>{artist}</div>
+              <div className='tng-Tracklist-name'>{trackName}</div>
+            </div>
           </li>
         )}
       </ul>
