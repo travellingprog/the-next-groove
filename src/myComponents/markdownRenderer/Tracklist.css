@@ -1,0 +1,58 @@
+.tng-Tracklist {
+  margin: 1.75em 0;
+}
+
+.tng-Tracklist-title {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.tng-Tracklist-list {
+  list-style: none;
+  margin: 0.5em 0;
+  padding: 0 0 0 0.8em;
+}
+
+.tng-Tracklist-item {
+  align-items: flex-start;
+  display: flex;
+  margin: 0.5em 0 0 0;
+}
+
+.tng-Tracklist-time {
+  flex: 0 0 auto;
+  font-family: monospace, monospace;
+  font-size: 0.9em;
+  line-height: 2em;
+  margin: 0 0.5em 0 0;
+}
+
+.tng-Tracklist-artist {
+  font-weight: 700;
+}
+
+@media (min-width: 781px) {
+  /* increase the left padding */
+  .tng-Tracklist-list {
+    padding: 0 0 0 1.5em;
+  }
+
+  /* reduce the margin between tracks */
+  .tng-Tracklist-item {
+    margin: 0.1em 0 0 0;
+  }
+
+  /* place the artist next to the track name */
+  .tng-Tracklist-artist {
+    display: inline;
+    margin: 0 0.5em 0 0;
+  }
+
+  /* place the track name next to the artist, reduce the font size slightly*/
+  .tng-Tracklist-name {
+    display: inline;
+    font-size: 0.9em;
+  }
+}

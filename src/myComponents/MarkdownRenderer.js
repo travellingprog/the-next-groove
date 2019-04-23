@@ -4,6 +4,7 @@ import React from 'react'
 import EmbeddedMusic from './markdownRenderer/EmbeddedMusic'
 import MarkdownImage from './markdownRenderer/MarkdownImage'
 import SpecialText from './markdownRenderer/SpecialText'
+import Tracklist from './markdownRenderer/Tracklist'
 import sc from 'myUtils/suitClass'
 import './MarkdownRenderer.css'
 
@@ -25,6 +26,7 @@ const MarkdownRenderer = ({ md, musicOnly = false }) => {
             }
           },
           SpecialText,
+          Tracklist,
           img: {
             component: MarkdownImage
           }

@@ -1,7 +1,7 @@
 /**
  * LimitedText is just a copy of a slightly altered version of the standard NetlifyCMS
  * Text widget, except it strictly imposes a character limit, and most importantly it
- * dipslays how many characters you've written so far.
+ * displays how many characters you've written so far.
  */
 import React, { Component } from 'react'
 import NetlifyCmsWidgetText from 'netlify-cms-widget-text'
