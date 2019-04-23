@@ -32,7 +32,6 @@ export default {
   ],
   pattern: /^<SpecialText\s+align="(.*)"\s+size="(.*)"\s+\/>/,
   fromBlock: regexMatch => {
-    console.log('EditorSpecialText regexMatch', regexMatch)
     return {
       align: regexMatch[1],
       size: regexMatch[2]
