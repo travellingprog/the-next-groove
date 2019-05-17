@@ -15,7 +15,7 @@
 }
 
 .tng-HomeDesktopNav-link {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   font-size: 1.1em;
   font-weight: bold;
   padding: 10px;
@@ -24,6 +24,6 @@
 }
 
 .tng-HomeDesktopNav-link:hover {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(138, 82%, 18%);
+  background-color: var(--color-gray-98);
+  color: var(--color-green-18);
 }

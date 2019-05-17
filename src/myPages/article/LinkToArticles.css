@@ -1,5 +1,5 @@
 .tng-LinkToArticles {
-  color: hsl(193, 66%, 33%);
+  color: var(--color-blue-33);
   margin: 0 15px;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .tng-LinkToArticles-link {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   font-size: 1.25em;
   text-decoration: none;
 }

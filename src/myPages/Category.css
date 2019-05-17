@@ -1,5 +1,5 @@
 .tng-Category-pageNum {
-  color: hsl(193, 66%, 33%);
+  color: var(--color-blue-33);
   font-size: 1.125em;
   margin-bottom: 20px;
   text-align: center;
@@ -7,7 +7,7 @@
 }
 
 .tng-Category-title {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   font-size: 32px;
   letter-spacing: 2px;
   margin: 0px 0 20px;

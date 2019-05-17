@@ -7,7 +7,7 @@
 }
 
 .tng-PageLinks-link {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   font-size: 18px;
   font-weight: bold;
   text-align: right;

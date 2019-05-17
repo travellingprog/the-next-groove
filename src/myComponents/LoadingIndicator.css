@@ -10,7 +10,7 @@
 
 .tng-LoadingIndicator-text {
   animation: pulse 1.25s infinite both;
-  color: hsl(193, 66%, 33%);
+  color: var(--color-blue-33);
 }
 
 @keyframes skewImg {

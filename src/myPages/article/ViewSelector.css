@@ -1,7 +1,7 @@
 .tng-ViewSelector {
-  background-color: hsla(0, 0%, 0%, 88%);
+  background-color: var(--color-black-0-88);
   bottom: 0;
-  color: hsl(0, 0%, 80%);
+  color: var(--color-gray-80);
   display: flex;
   flex-direction: column;
   font-size: 1.625em;
@@ -29,7 +29,7 @@
 }
 
 .tng-ViewSelector-viewMode {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   font-size: 1.6em;
   margin-top: 15px;
   opacity: 0.85;

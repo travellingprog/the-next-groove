@@ -10,7 +10,7 @@
 }
 
 .tng-ErrorIndicator-text {
-  color: #dc2b2b;
+  color: var(--color-red-52);
 }
 
 @keyframes skullPulse {

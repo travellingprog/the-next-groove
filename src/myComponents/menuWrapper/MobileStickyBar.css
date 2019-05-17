@@ -1,7 +1,7 @@
 .tng-MobileStickyBar {
-  background-color: hsla(75, 13%, 94%, 0.95);
+  background-color: var(--color-gray-94-95);
   bottom: 0;
-  box-shadow: 0 -1px 10px hsla(0, 0%, 0%, 11%);
+  box-shadow: 0 -1px 10px var(--color-black-0-11);
   height: 45px;
   left: 0;
   position: fixed;
@@ -20,7 +20,7 @@
 }
 
 .tng-MobileStickyBar-btn {
-  border-left: 1px solid hsl(193, 66%, 33%);
+  border-left: 1px solid var(--color-blue-33);
   height: 45px;
   width: 64px;
 }

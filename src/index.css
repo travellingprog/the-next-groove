@@ -1,3 +1,31 @@
+/* CUSTOM PROPERTIES */
+
+:root {
+  /* color naming convention: --color-[one word description]-[lightness value]-[alpha?] */
+  --color-black-0-11: hsla(0, 0%, 0%, 0.11);
+  --color-black-0-30: hsla(0, 0%, 0%, 0.30);
+  --color-black-0-88: hsla(0, 0%, 0%, 0.88);
+
+  --color-blue-33: hsl(193, 66%, 33%);
+  --color-blue-33-85: hsla(193, 66%, 33%, 0.85);
+
+  --color-gray-13: hsl(0, 0%, 13%);
+  --color-gray-20: hsl(0, 0%, 20%);
+  --color-gray-80: hsl(0, 0%, 80%);
+  --color-gray-94-74: hsla(75, 13%, 94%, 0.74);
+  --color-gray-94-95: hsla(75, 13%, 94%, 0.95);
+  --color-gray-98: hsl(0, 0%, 98%);
+
+  --color-green-18: hsl(138, 82%, 18%);
+  --color-green-28: hsl(138, 82%, 28%);
+
+  --color-orange-52: hsl(30, 76%, 52%);
+
+  --color-red-27: hsl(0, 100%, 27%);
+  --color-red-52: hsl(0, 72%, 52%);
+}
+
+
 /* FONTS */
 
 /** Lora **/
@@ -50,6 +78,7 @@
   font-weight: 700;
 }
 
+
 /* ROOT STYLE */
 
 * {
@@ -98,6 +127,7 @@ button:focus {
 button:active {
   transform: scale(0.99);
 }
+
 
 /* UTILITY CLASSES */
 /* this is the only place where !important does NOT need to be avoided */
