@@ -28,11 +28,11 @@
   },
   "scripts": {
     "build": "npm-run-all build:content build:app",
-    "build:app": "NODE_PATH=./src react-scripts build",
+    "build:app": "react-scripts build",
     "build:content": "NODE_ENV=production node scripts/prepareGeneratedContent",
     "lint": "standard",
-    "start": "NODE_PATH=./src react-scripts start",
-    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
     "update-dev": "npm-run-all update-dev:base-content update-dev:generated",
     "update-dev:base-content": "./scripts/updateDevContent.sh",
     "update-dev:generated": "NODE_ENV=development node scripts/prepareGeneratedContent"
