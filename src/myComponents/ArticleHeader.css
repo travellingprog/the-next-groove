@@ -49,8 +49,8 @@
 }
 
 .tng-ArticleHeader-titleBox {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(138, 82%, 28%);
+  background-color: var(--color-gray-98);
+  color: var(--color-green-28);
   max-width: 650px;
   min-height: 30px;
   padding: 10px 15px 0;

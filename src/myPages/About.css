@@ -1,5 +1,5 @@
 .tng-About-title {
-  color: hsl(193, 66%, 33%);
+  color: var(--color-blue-33);
   font-size: 2em;
   letter-spacing: 0.15625em;
   margin-top: 20px;
@@ -20,7 +20,7 @@
 }
 
 .tng-About-text {
-  color: hsl(0, 0%, 13%);
+  color: var(--color-gray-13);
   line-height: 1.2;
   margin: 20px 20px 15px;
 }

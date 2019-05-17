@@ -1,5 +1,5 @@
 .tng-ArticleContent-category {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   line-height: 1.5;
   text-decoration: none;
 }
@@ -10,7 +10,7 @@
 }
 
 .tng-ArticleContent-text {
-  color: hsl(0, 0%, 13%);
+  color: var(--color-gray-13);
   line-height: 1.4;
   margin: 40px 15px 0 15px;
   word-spacing: 0.1em;
@@ -19,7 +19,7 @@
 @media (min-width: 781px) {
   /* adjust text to an increased font size */
   .tng-ArticleContent-text {
-    color: hsl(0, 0%, 20%);
+    color: var(--color-gray-20);
     line-height: 1.6;
     word-spacing: 0;
   }

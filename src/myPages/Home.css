@@ -1,5 +1,5 @@
 .tng-Home-pageNum {
-  color: hsl(193, 66%, 33%);
+  color: var(--color-blue-33);
   font-size: 1.125em;
   margin-bottom: 20px;
   text-align: center;

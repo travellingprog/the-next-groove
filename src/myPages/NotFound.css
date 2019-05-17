@@ -1,5 +1,5 @@
 .tng-NotFound {
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--color-gray-98);
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -20,7 +20,7 @@
 
 .tng-NotFound-msgContainer {
   background: white;
-  border-color: darkred;
+  border-color: var(--color-red-27);
   border-style: groove groove double double;
   border-width: 12px;
   left: 50%;
@@ -36,7 +36,7 @@
 }
 
 .tng-NotFound-link {
-  color: hsla(193, 66%, 33%, 0.85);
+  color: var(--color-blue-33-85);
   font-weight: bold;
   text-decoration: underline;
 }

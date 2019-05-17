@@ -1,5 +1,5 @@
 .tng-MobileNav {
-  background-color: hsla(193, 66%, 33%, 0.85);
+  background-color: var(--color-blue-33-85);
   bottom: 0;
   height: 100vh;
   left: 100vw;
@@ -26,7 +26,7 @@
 }
 
 .tng-MobileNav-navItem {
-  color: hsl(0, 0%, 98%);
+  color: var(--color-gray-98);
   display: inline-block;
   font-size: 1.5em;
   font-weight: bold;
@@ -43,7 +43,7 @@
 }
 
 .tng-MobileNav-closeMenuBtn {
-  background-color: hsla(75, 13%, 94%, 74%);
+  background-color: var(--color-gray-94-74);
   bottom: 0;
   height: 45px;
   right: 0;

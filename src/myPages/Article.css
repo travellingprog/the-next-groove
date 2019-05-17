@@ -5,8 +5,8 @@
 /* Music-Only Indicator */
 
 .tng-Article-indicator {
-  background-color: #E28628;
-  color: #FFFFFF;
+  background-color: var(--color-orange-52);
+  color: white;
   display: none;
   font-size: 16px;
   height: 22px;
@@ -26,7 +26,7 @@
 /* Article Content */
 
 .tng-Article-content {
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--color-gray-98);
   height: 100%;
   margin: 0 auto;
   max-width: 780px;
@@ -51,7 +51,7 @@
 
   /* place the indicator below the desktop nav bar and add a box-shadow */
   .tng-Article-indicator {
-    box-shadow: 0 1px 10px hsla(0, 0%, 0%, 30%);
+    box-shadow: 0 1px 10px var(--color-black-0-30);
     top: 50px;
   }
 

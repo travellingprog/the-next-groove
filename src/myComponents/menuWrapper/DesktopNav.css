@@ -1,6 +1,6 @@
 .tng-DesktopNav {
   background-color: white;
-  box-shadow: 0 1px 10px hsla(0, 0%, 0%, 11%);
+  box-shadow: 0 1px 10px var(--color-black-0-11);
   height: 50px;
   position: fixed;
   top: 0;
@@ -38,15 +38,15 @@
 }
 
 .tng-DesktopNav-navLink {
-  color: hsl(138, 82%, 28%);
+  color: var(--color-green-28);
   font-size: 1.2em;
   padding: 10px;
   text-decoration: none;
 }
 
 .tng-DesktopNav-navLink:hover {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(138, 82%, 18%);
+  background-color: var(--color-gray-98);
+  color: var(--color-green-18);
 }
 
 .tng-DesktopNav-actionBtns {
@@ -62,7 +62,7 @@
 }
 
 .tng-DesktopNav-btn:hover {
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--color-gray-98);
 }
 
 .tng-DesktopNav-img {
