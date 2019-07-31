@@ -9,7 +9,7 @@ const defaultTrackValues = {
   startTime: '',
   artist: '',
   trackName: ''
-};
+}
 
 export default {
   id: 'tracklist',
@@ -26,8 +26,8 @@ export default {
           widget: 'string',
           default: '00:00:00',
           pattern: [
-            "^[0-5]?[0-9]:[0-5][0-9](:[0-5][0-9])?$",
-            "Enter a time in the format hh:mm:ss or mm:ss"
+            '^[0-5]?[0-9]:[0-5][0-9](:[0-5][0-9])?$',
+            'Enter a time in the format hh:mm:ss or mm:ss'
           ]
         },
         {

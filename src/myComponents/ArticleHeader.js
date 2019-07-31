@@ -42,8 +42,8 @@ class ArticleHeader extends Component {
     const { children, image, title, link } = this.props
     const { bgShift } = this.state
 
-    let bgLStyle = { backgroundImage: `url(${image})` }
-    let bgRStyle = { ...bgLStyle }
+    const bgLStyle = { backgroundImage: `url(${image})` }
+    const bgRStyle = { ...bgLStyle }
     if (bgShift) {
       bgLStyle.transform = `translate3d(-${bgShift}%, 0, 0)`
       bgRStyle.transform = `translate3d(${bgShift}%, 0, 0)`

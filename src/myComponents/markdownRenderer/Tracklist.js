@@ -27,8 +27,8 @@ const Tracklist = ({ tracksStr }) => {
 }
 
 /** formatTime will format the track time so it has a mm:ss or hh:mm:ss display */
-function formatTime(startTime) {
-  const trimmedTime = startTime.trim();
+function formatTime (startTime) {
+  const trimmedTime = startTime.trim()
 
   if (trimmedTime.length === 0) {
     return '00:00'

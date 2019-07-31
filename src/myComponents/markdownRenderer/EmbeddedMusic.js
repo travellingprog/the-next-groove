@@ -32,9 +32,9 @@ class EmbeddedMusic extends Component {
    */
   saveAspectRatio () {
     let aspectPercentage = ''
-    let iframe = this.iframeWrapperRef.current.children[0]
+    const iframe = this.iframeWrapperRef.current.children[0]
     if (iframe && iframe.width && iframe.height) {
-      let isPixelNumbers = /^\d+$/.test(`${iframe.width}${iframe.height}`)
+      const isPixelNumbers = /^\d+$/.test(`${iframe.width}${iframe.height}`)
       if (isPixelNumbers) {
         aspectPercentage = `${iframe.height * 100 / iframe.width}%`
       }
