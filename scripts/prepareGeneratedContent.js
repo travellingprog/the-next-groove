@@ -17,7 +17,7 @@ async function prepareGeneratedContent () {
     const articles = await getArticles(jsonPaths.articleFolder)
 
     await prepareHomePages(articles, jsonPaths.homeFolder)
-    for (let category of ['MIXES', 'MUSINGS', 'PLAYLISTS']) {
+    for (const category of ['MIXES', 'MUSINGS', 'PLAYLISTS']) {
       await prepareCategoryPages(category, articles, jsonPaths.categoryFolder)
     }
 
@@ -52,7 +52,7 @@ async function getArticles (articleFolder) {
   const articlePaths = await glob(`${articleFolder}/**.json`)
 
   let articles = []
-  for (let articlePath of articlePaths) {
+  for (const articlePath of articlePaths) {
     const name = path.parse(articlePath).name
 
     articles.push({

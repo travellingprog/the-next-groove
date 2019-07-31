@@ -21,14 +21,14 @@ class CMSItemLoader extends Component {
   componentDidMount () {
     const { itemPath, previewData } = this.props
     if (!previewData) {
-      this.fetchFile(itemPath);
+      this.fetchFile(itemPath)
     }
   }
 
   /** Load the CMS file at (basePath + itemPath), save the JSON content in component state */
   async fetchFile (itemPath) {
     try {
-      let response = null;
+      let response = null
 
       // wait 400ms before showing a loading indicator
       setTimeout(() => {
@@ -41,7 +41,7 @@ class CMSItemLoader extends Component {
       response = await fetch(fullPath)
 
       if (!response.ok) {
-        let err = new Error(`Unable to retrieve content (${fullPath})`)
+        const err = new Error(`Unable to retrieve content (${fullPath})`)
         err.statusCode = response.status
         throw err
       }

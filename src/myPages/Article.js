@@ -25,7 +25,7 @@ class Article extends Component {
 
   /** Return the actions that can be done on the article page */
   getActions () {
-    let actions = []
+    const actions = []
     if (fscreen.fullscreenEnabled) {
       actions.push({
         alt: 'full screen',

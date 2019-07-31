@@ -8,8 +8,8 @@ class PreviewContainer extends Component {
     if (window.parent) {
       let previewIframe
 
-      for (let iframe of document.querySelectorAll('iframe')) {
-        let hasPreview = !!iframe.contentDocument.querySelector('.tng-PreviewContainer')
+      for (const iframe of document.querySelectorAll('iframe')) {
+        const hasPreview = !!iframe.contentDocument.querySelector('.tng-PreviewContainer')
         if (hasPreview) {
           previewIframe = iframe
           break
@@ -20,7 +20,7 @@ class PreviewContainer extends Component {
         const previewPaneHead = previewIframe.contentDocument.head
         const stylesheets = window.parent.document.querySelectorAll('style, link[rel="stylesheet"]')
 
-        for (let stylesheet of stylesheets) {
+        for (const stylesheet of stylesheets) {
           previewPaneHead.appendChild(stylesheet.cloneNode(true))
         }
       }

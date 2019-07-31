@@ -13,7 +13,7 @@ import './About.css'
  * Render all content wrapped by menus/navigation.
  * navSlideClass is a CSS that will make content slide when the mobile nav slides in.
  */
-const About = ({ navSlideClass, previewData }) =>(
+const About = ({ navSlideClass, previewData }) => (
   <div className={`tng-About ${navSlideClass}`}>
     { /* Tab Title */ }
     <Titled title={title => `About | ${title}`} />
@@ -46,7 +46,7 @@ const About = ({ navSlideClass, previewData }) =>(
 
 /** A wrapper around page content with the menus/navigation */
 const AboutWrapper = (props) => (
-  <MenuWrapper render={About} { ...props } />
+  <MenuWrapper render={About} {...props} />
 )
 
 export default AboutWrapper
