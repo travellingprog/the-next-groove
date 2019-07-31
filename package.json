@@ -29,7 +29,7 @@
     "uuid": "^3.1.0"
   },
   "scripts": {
-    "build": "npm-run-all build:content build:app",
+    "build": "npm-run-all lint build:content build:app",
     "build:app": "react-scripts build",
     "build:content": "NODE_ENV=production node scripts/prepareGeneratedContent",
     "lint": "standard",
