@@ -1,6 +1,6 @@
 # The Next Groove
 
-[The Next Groove](https://github.com/facebook/create-react-app#readme) is an online music blog about beat-driven music. The blog content is written by Patrick Cardenas Mendez ([pat_cardenas@hotmail.com](mailto:pat_cardenas@hotmail.com)) and the website has been developed by Erick Cardenas Mendez ([LinkedIn](https://www.linkedin.com/in/erickcm/), [GitHub](https://github.com/travellingprog)).
+[The Next Groove](https://www.thenextgroove.com/) is an online music blog about beat-driven music. The blog content is written by Patrick Cardenas Mendez ([pat_cardenas@hotmail.com](mailto:pat_cardenas@hotmail.com)) and the website has been developed by Erick Cardenas Mendez ([LinkedIn](https://www.linkedin.com/in/erickcm/), [GitHub](https://github.com/travellingprog)).
 
 This repository contains all the code and the content of the website, including the administrative portal. The tools used to create this website include:
 
